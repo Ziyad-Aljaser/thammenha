@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 import { useAuth } from "../hooks/useAuth";
 
-import hero_img from "../assets/logo2.png";
+import hero_img from "../assets/logo.png";
 
 import Layout from "../components/Layout/Layout";
 
@@ -31,7 +31,7 @@ const Home = () => {
             transition={{ type: "spring", stiffness: 50 }} // Adjusted properties
           >
             <h1 className="text-4xl sm:text-5xl font-bold leading-normal">
-              Welcome to Thammenha, Your Personal Used Car Price Predictor!
+              Welcome to Thammenha, Your Personal Used Car Price Estimator!
             </h1>
 
             {/* The image for small screen */}
