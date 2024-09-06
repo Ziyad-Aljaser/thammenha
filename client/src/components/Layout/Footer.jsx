@@ -14,7 +14,7 @@ const Footer = () => {
       </div>
 
       <div className="grid grid-flow-col gap-4">
-        <a href="https://github.com/InsightHubProject/insight-hub" target="_blank" rel="noopener noreferrer">
+        <a href="https://github.com/Ziyad-Aljaser/thammenha" target="_blank" rel="noopener noreferrer">
           <svg
             width="20"
             height="20"

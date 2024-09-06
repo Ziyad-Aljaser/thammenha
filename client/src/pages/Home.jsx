@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 import { useAuth } from "../hooks/useAuth";
 
-import hero_img from "../assets/logo.png";
+import hero_img from "../assets/logo2.png";
 
 import Layout from "../components/Layout/Layout";
 

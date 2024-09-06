@@ -46,7 +46,7 @@ const ContactFormSection = () => {
         </div>
 
         <div className="form-control mt-6">
-          <button className="btn btn-warning">Submit</button>
+          <button className="btn btn-neutral">Submit</button>
         </div>
       </div>
     </div>

@@ -31,10 +31,9 @@ const GoalSection = forwardRef((props, ref) => {
             At Thammenha, we are on a mission to transform how you understand
             used car values. We strive to deliver exceptional accuracy and
             insights, making the process of evaluating your car’s worth simple
-            and reliable. Join us in embracing simplicity and precision in every
-            step of your car valuation journey.
+            and reliable.
           </p>
-          <Link to={"/"} className="btn btn-warning w-1/2 text-xl mt-4 mb-16">
+          <Link to={"/"} className="btn btn-neutral w-1/2 text-xl mt-4 mb-16">
             Back Home
           </Link>
         </motion.div>

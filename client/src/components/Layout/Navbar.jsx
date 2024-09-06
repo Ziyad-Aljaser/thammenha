@@ -106,7 +106,7 @@ const Navbar = () => {
             </ul>
           </div>
           <Link to="/" className="btn btn-ghost normal-case text-2xl">
-            <div className="w-10 rounded-full">
+            <div className="w-14 rounded-full">
               <img src={logo} alt="Logo" />
             </div>
             Thammenha

@@ -119,7 +119,7 @@ export default function Login() {
               <div className="form-control mt-8">
                 <button
                   type="submit"
-                  className="btn btn-warning text-lg"
+                  className="btn btn-neutral text-lg"
                   disabled={isLoading}
                 >
                   {isLoading ? (
