@@ -36,11 +36,11 @@ const ContactMethodsSection = () => {
         <div>
           <p className="text-xl sm:text-3xl font-bold">Address</p>
           <p className="text-lg mb-12">
-            123 Elm Street
+            Tuwaiq Academy
             <br />
-            Mystic Falls, VA 12345
+            Riyadh
             <br />
-            United States
+            Saudi Arabia
           </p>
         </div>
       </div>
@@ -57,7 +57,7 @@ const ContactMethodsSection = () => {
         {/* Phone container */}
         <div>
           <p className="text-xl sm:text-3xl font-bold">Phone</p>
-          <p className="text-lg mb-12">+1 509-892-200-304</p>
+          <p className="text-lg mb-12">+966 920022030</p>
         </div>
       </div>
 
@@ -73,7 +73,7 @@ const ContactMethodsSection = () => {
         {/* Email container */}
         <div>
           <p className="text-xl sm:text-3xl font-bold">Email</p>
-          <p className="text-lg mb-12">InsightHub@sample.com</p>
+          <p className="text-lg mb-12">Care@Tweeq.sa</p>
         </div>
       </div>
     </div>
