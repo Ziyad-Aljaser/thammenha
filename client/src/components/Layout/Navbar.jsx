@@ -77,7 +77,7 @@ const Navbar = () => {
                   </li>
                   <dic className="divider"></dic>
                   <li>
-                    <Link to="/analysis">Analysis</Link>
+                    <Link to="/analysis">Prediction</Link>
                   </li>
                   <li>
                     <Link to="/reports">Reports</Link>
@@ -117,7 +117,7 @@ const Navbar = () => {
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal p-0">
               <li className="text-xl">
-                <Link to="/analysis">Analysis</Link>
+                <Link to="/analysis">Prediction</Link>
               </li>
               <li className="text-xl">
                 <Link to="/reports">Reports</Link>
