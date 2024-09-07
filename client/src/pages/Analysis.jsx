@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Layout from "../components/Layout/Layout";
 import VisualizationSection from "../components/Analysis/VisualizationSection";
 import { useAuth } from "../hooks/useAuth";
+import carModels from "../data/car_models.json";
 
 const Analysis = () => {
   const [showAnalysisCard, setShowAnalysisCard] = useState(true);
@@ -13,32 +14,16 @@ const Analysis = () => {
   const [selectedMake, setSelectedMake] = useState("");
   const [selectedModel, setSelectedModel] = useState("");
   const [models, setModels] = useState([]);
-  const [allModels] = useState({
-    Toyota: [
-      "Corolla",
-      "Camry",
-      "RAV4",
-      "Highlander",
-      "Prius",
-      "Tacoma",
-      "Tundra",
-      "4Runner",
-      "Sienna",
-      "Avalon",
-    ],
-    Hyundai: [
-      "Elantra",
-      "Sonata",
-      "Tucson",
-      "Santa Fe",
-      "Kona",
-      "Palisade",
-      "Veloster",
-      "Accent",
-      "Ioniq",
-      "Genesis",
-    ],
-  });
+  const [allModels] = useState(carModels);
+
+  const [makes, setMakes] = useState([]);
+
+  // Fetch or load makes from the JSON object on component mount
+  useEffect(() => {
+    // Get all the makes (keys) from the JSON data
+    const makesFromJson = Object.keys(allModels);
+    setMakes(makesFromJson);
+  }, [allModels]);
 
   // New state variables for year, mileage, and clean title
   const [year, setYear] = useState("");
@@ -98,8 +83,11 @@ const Analysis = () => {
                       <option value="" disabled hidden>
                         Choose Make
                       </option>
-                      <option value="Toyota">Toyota</option>
-                      <option value="Hyundai">Hyundai</option>
+                      {makes.map((make) => (
+                        <option key={make} value={make}>
+                          {make}
+                        </option>
+                      ))}
                     </select>
                   </div>
 

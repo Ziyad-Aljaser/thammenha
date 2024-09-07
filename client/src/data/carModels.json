@@ -1,0 +1,51 @@
+{
+  "Toyota": [
+    "Corolla",
+    "Camry",
+    "RAV4",
+    "Highlander",
+    "Prius",
+    "Tacoma",
+    "Tundra",
+    "4Runner",
+    "Sienna",
+    "Avalon"
+  ],
+  "Hyundai": [
+    "Elantra",
+    "Sonata",
+    "Tucson",
+    "Santa Fe",
+    "Kona",
+    "Palisade",
+    "Veloster",
+    "Accent",
+    "Ioniq",
+    "Genesis"
+  ],
+  "Nissan": [
+    "Altima",
+    "Sentra",
+    "Maxima",
+    "Rogue",
+    "Sunny",
+    "Pathfinder",
+    "Patrol",
+    "Versa",
+    "Frontier",
+    "Titan"
+  ],
+  "Changan": [
+  "CS35 Plus",
+  "CS55",
+  "CS75 Plus",
+  "Eado",
+  "Alsvin",
+  "CS15",
+  "Uni-K",
+  "Uni-T",
+  "Hunter",
+  "Raeton CC"
+]
+
+}
