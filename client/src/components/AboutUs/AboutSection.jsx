@@ -25,7 +25,7 @@ const AboutSection = ({ handleButtonClick }) => {
           </div>
           <p className="py-6 text-xl sm:text-3xl">
             Explore the world of used car pricing with Thammenha. Simple,
-            user-friendly, and insightful – we make predicting your car's value
+            user-friendly, and insightful – we make estimating your car's value
             easy and accurate.
           </p>
           <button
