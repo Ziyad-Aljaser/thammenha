@@ -14,6 +14,8 @@ import ReportDetail from "./pages/ReportDetail";
 import { PrivateWrapper } from "./components/PrivateWrapper"; // Adjust the import if the name is different
 import { AuthProvider } from "./contexts/AuthContext";
 
+import './config/i18n';
+
 function App() {
   return (
     <>

@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
 
 import logo from "../../assets/small-logo.png";
+import { useTranslation } from "react-i18next";
 
 const Navbar = () => {
   const { currentUser, logout } = useAuth();
@@ -41,20 +42,24 @@ const Navbar = () => {
     // add custom data-theme attribute to html tag required to update theme using DaisyUI
     document.querySelector("html").setAttribute("data-theme", localTheme);
   }, [theme]);
-  // Set the initial language from local storage or default to Arabic
+
+  const { i18n } = useTranslation();
   const [language, setLanguage] = useState(
     localStorage.getItem("language") ? localStorage.getItem("language") : "ar"
   );
 
-  // Toggle language state between Arabic and English
-  // Toggle language state between Arabic and English based on selection
+  // Sync i18n's current language with the component state
+  useEffect(() => {
+    i18n.changeLanguage(language);
+  }, [language, i18n]);
+
   const handleLanguageToggle = (selectedLanguage) => {
     if (selectedLanguage !== language) {
       setLanguage(selectedLanguage);
+      i18n.changeLanguage(selectedLanguage); // Update i18n language
     }
   };
 
-  // Store the language in local storage and update the direction of the page
   useEffect(() => {
     localStorage.setItem("language", language);
     document
@@ -289,7 +294,7 @@ const Navbar = () => {
             <ul className="menu menu-sm gap-1">
               <li>
                 <button
-                  className="flex"
+                  className={`flex ${language === "ar" ? "active" : ""}`} // Indicate active language
                   onClick={() => handleLanguageToggle("ar")}
                 >
                   <span className="badge badge-sm badge-outline !pl-1.5 !pr-1 pt-px font-mono !text-[.6rem] font-bold tracking-widest opacity-50">
@@ -300,7 +305,7 @@ const Navbar = () => {
               </li>
               <li>
                 <button
-                  className="flex"
+                  className={`flex ${language === "en" ? "active" : ""}`} // Indicate active language
                   onClick={() => handleLanguageToggle("en")}
                 >
                   <span className="badge badge-sm badge-outline !pl-1.5 !pr-1 pt-px font-mono !text-[.6rem] font-bold tracking-widest opacity-50">

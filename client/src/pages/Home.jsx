@@ -1,93 +1,90 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
-
-import { useAuth } from "../hooks/useAuth";
-
-import hero_img from "../assets/logo.png";
-
-import Layout from "../components/Layout/Layout";
+// src/components/Home.jsx
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { useAuth } from '../hooks/useAuth';
+import hero_img_ar from '../assets/logo.png';
+import hero_img_en from '../assets/logo-en.png';
+import Layout from '../components/Layout/Layout';
+import { useTranslation } from 'react-i18next';
 
 const Home = () => {
   const { currentUser } = useAuth();
+  const { t, i18n } = useTranslation(); // Correct use of useTranslation hook
+
+  // Determine the text alignment and image based on the current language
+  const isArabic = i18n.language === 'ar';
+  const heroImg = isArabic ? hero_img_ar : hero_img_en; // Choose the image based on the language
+
   return (
     <Layout>
-      {/* The padding is smaller when the screen is smal */}
       <div className="hero py-12 sm:py-16 bg-base-300">
         <div className="hero-content grid md:grid-cols-2 gap-8">
-          {/* The image for large screen */}
+          
+          {/* Text Block */}
           <motion.div
-            initial={{ x: "100vw" }}
+            initial={{ x: '-100vw' }}
             animate={{ x: 0 }}
-            transition={{ type: "spring", stiffness: 50 }}
-            className="order-2 hidden md:block ml-auto"
-          >
-            <img src={hero_img} alt="Hero" />
-          </motion.div>
-
-          <motion.div
-            initial={{ x: "-100vw" }}
-            animate={{ x: 0 }}
-            transition={{ type: "spring", stiffness: 50 }} // Adjusted properties
+            transition={{ type: 'spring', stiffness: 50 }}
+            className={`md:order-2 ${isArabic ? 'text-right' : 'text-left'}`} // Adjust text alignment
           >
             <h1
               className="text-4xl sm:text-5xl font-bold leading-normal"
-              style={{
-                fontFamily: "'El Messiri', sans-serif",
-                direction: "rtl",
-              }}
+              style={{ fontFamily: "'El Messiri', sans-serif" }}
             >
-              مرحبًا بك في ثمنها، منصة تقدير أسعار السيارات المستعملة!
+              {t('welcome')}
             </h1>
 
-            {/* The image for small screen */}
+            {/* Image for Small Screens */}
             <div className="order-2 block md:hidden">
-              <img src={hero_img} alt="Hero" className="w-4/6 h-auto mx-auto" />
+              <img src={heroImg} alt="Hero" className="w-4/6 h-auto mx-auto" />
             </div>
 
             <p
               className="pt-6 text-3xl leading-normal"
-              style={{
-                fontFamily: "'El Messiri', sans-serif",
-                direction: "rtl",
-              }}
+              style={{ fontFamily: "'El Messiri', sans-serif" }}
             >
-              قدّر قيمة سيارتك بسهولة وبسرعة! أدخل التفاصيل الأساسية واترك
-              الباقي لنظام الذكاء الاصطناعي الخاص بنا
+              {t('description')}
             </p>
 
             <p
               className="pb-12 text-md leading-normal"
-              style={{
-                fontFamily: "'El Messiri', sans-serif",
-                direction: "rtl",
-              }}
+              style={{ fontFamily: "'El Messiri', sans-serif" }}
             >
-              قريباً: إمكانية تقييم الصور للكشف عن الحوادث!
+              {t('coming_soon')}
             </p>
 
             <div className="flex justify-center gap-2">
               <Link
                 to="/about"
                 className="btn btn-neutral flex-grow text-xl"
-                style={{
-                  fontFamily: "'El Messiri', sans-serif",
-                  direction: "rtl",
-                }}
+                style={{ fontFamily: "'El Messiri', sans-serif" }}
               >
-                من نحن
+                {t('about_us')}
               </Link>
 
               {!currentUser && (
                 <Link
                   to="/signup"
                   className="btn btn-neutral flex-grow text-xl ml-2"
+                  style={{ fontFamily: "'El Messiri', sans-serif" }}
                 >
-                  Get Started
+                  {t('get_started')}
                 </Link>
               )}
             </div>
           </motion.div>
+
+          {/* Image Block */}
+          <motion.div
+            initial={{ x: '100vw' }}
+            animate={{ x: 0 }}
+            transition={{ type: 'spring', stiffness: 50 }}
+            className="order-1 hidden md:block ml-auto md:order-1"
+          >
+            <img src={heroImg} alt="Hero" className="max-w-full h-auto" />
+          </motion.div>
+
         </div>
       </div>
     </Layout>
