@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
 
 import Home from "./pages/Home";
-import Analysis from "./pages/Analysis";
+import Estimation from "./pages/Estimation";
 import Reports from "./pages/Reports";
 import AboutUs from "./pages/AboutUs";
 import Signup from "./pages/Signup";
@@ -24,10 +24,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route
-            path="/analysis"
+            path="/estimation"
             element={
               <PrivateWrapper>
-                <Analysis />
+                <Estimation />
               </PrivateWrapper>
             }
           />

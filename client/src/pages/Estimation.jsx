@@ -4,8 +4,10 @@ import VisualizationSection from "../components/Analysis/VisualizationSection";
 import { useAuth } from "../hooks/useAuth";
 import carModelsUSA from "../data/car_models.json";
 import carModelsKSA from "../data/carModels.json";
+import { useTranslation } from "react-i18next"; // Import useTranslation
 
-const Analysis = () => {
+const Estimation = () => {
+  const { t } = useTranslation(); // Use the hook to access translations
   const [showAnalysisCard, setShowAnalysisCard] = useState(true);
   const [showVisualization, setShowVisualization] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -74,7 +76,7 @@ const Analysis = () => {
     <Layout>
       <div className="flex flex-col p-3 bg-base-300">
         <h1 className="text-4xl p-7 font-semibold flex justify-center mt-14">
-          Estimator
+          {t('estimator.estimator_title')}
         </h1>
 
         {showAnalysisCard && (
@@ -90,9 +92,9 @@ const Analysis = () => {
                   {/* Market Selection */}
                   <div className="w-full max-w-xs mt-4 mb-6">
                     <h3 className="text-2xl font-semibold mb-4 text-center">
-                      Select Market
+                      {t('estimator.select_market')}
                     </h3>
-                    <div className="flex justify-center space-x-4">
+                    <div className="flex justify-center gap-4">
                       <button
                         type="button"
                         className={`btn ${
@@ -100,7 +102,7 @@ const Analysis = () => {
                         }`}
                         onClick={() => setMarket("USA")}
                       >
-                        USA Market
+                        {t('estimator.usa_market')}
                       </button>
                       <button
                         type="button"
@@ -109,7 +111,7 @@ const Analysis = () => {
                         }`}
                         onClick={() => setMarket("KSA")}
                       >
-                        KSA Market
+                        {t('estimator.ksa_market')}
                       </button>
                     </div>
                   </div>
@@ -118,7 +120,7 @@ const Analysis = () => {
                   {market && (
                     <div className="w-full max-w-xs mt-4">
                       <h3 className="text-2xl font-semibold mb-4">
-                        Select Car Make
+                        {t('estimator.select_car_make')}
                       </h3>
                       <select
                         className="select select-neutral w-full max-w-xs"
@@ -127,7 +129,7 @@ const Analysis = () => {
                         required
                       >
                         <option value="" disabled hidden>
-                          Choose Make
+                          {t('estimator.choose_make')}
                         </option>
                         {makes.map((make) => (
                           <option key={make} value={make}>
@@ -142,7 +144,7 @@ const Analysis = () => {
                   {selectedMake && (
                     <div className="w-full max-w-xs mt-4">
                       <h3 className="text-2xl font-semibold mb-4">
-                        Select Car Model
+                        {t('estimator.select_car_model')}
                       </h3>
                       <select
                         className="select select-neutral w-full max-w-xs"
@@ -151,7 +153,7 @@ const Analysis = () => {
                         required
                       >
                         <option value="" disabled hidden>
-                          Choose Model
+                          {t('estimator.choose_model')}
                         </option>
                         {models.map((model, index) => (
                           <option key={index} value={model}>
@@ -167,7 +169,9 @@ const Analysis = () => {
                     <>
                       {/* Year Input */}
                       <div className="w-full max-w-xs mt-4">
-                        <h3 className="text-2xl font-semibold mb-4">Year</h3>
+                        <h3 className="text-2xl font-semibold mb-4">
+                          {t('estimator.year')}
+                        </h3>
                         <select
                           className="select select-neutral select-bordered w-full max-w-xs"
                           value={year}
@@ -175,7 +179,7 @@ const Analysis = () => {
                           required
                         >
                           <option value="" disabled>
-                            Select Year
+                            {t('estimator.select_year')}
                           </option>
                           {Array.from(
                             { length: 2024 - 2000 + 1 },
@@ -190,15 +194,17 @@ const Analysis = () => {
 
                       {/* Mileage Input */}
                       <div className="w-full max-w-xs mt-4">
-                        <h3 className="text-2xl font-semibold mb-4">Mileage</h3>
+                        <h3 className="text-2xl font-semibold mb-4">
+                          {t('estimator.mileage')}
+                        </h3>
                         <input
                           type="number"
                           className="input input-neutral input-bordered w-full max-w-xs"
                           value={mileage}
                           onChange={(e) => setMileage(e.target.value)}
-                          placeholder="Enter Mileage"
+                          placeholder={t('estimator.enter_mileage')}
                           min="0"
-                          max="1000000" // Adjust this limit based on typical mileage ranges
+                          max="1000000"
                           required
                         />
                       </div>
@@ -206,7 +212,7 @@ const Analysis = () => {
                       {/* Clean Title Dropdown */}
                       <div className="w-full max-w-xs mt-4 pb-6">
                         <h3 className="text-2xl font-semibold mb-4">
-                          Clean Title
+                          {t('estimator.clean_title')}
                         </h3>
                         <select
                           className="select select-neutral w-full max-w-xs"
@@ -215,10 +221,10 @@ const Analysis = () => {
                           required
                         >
                           <option value="" disabled hidden>
-                            Select Option
+                            {t('estimator.select_option')}
                           </option>
-                          <option value="Yes">Yes</option>
-                          <option value="No">No</option>
+                          <option value="Yes">{t('estimator.yes')}</option>
+                          <option value="No">{t('estimator.no')}</option>
                         </select>
                       </div>
                     </>
@@ -232,7 +238,7 @@ const Analysis = () => {
                     {isLoading ? (
                       <span className="loading loading-spinner loading-md"></span>
                     ) : (
-                      "Estimate"
+                      t('estimator.estimate')
                     )}
                   </button>
                 </div>
@@ -252,4 +258,4 @@ const Analysis = () => {
   );
 };
 
-export default Analysis;
+export default Estimation;

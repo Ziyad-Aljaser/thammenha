@@ -152,7 +152,7 @@ const Navbar = () => {
                   direction: "rtl",
                 }}
               >
-                <Link to="/analysis">{t("navbar.Estimator")}</Link>
+                <Link to="/estimation">{t("navbar.Estimator")}</Link>
               </li>
               <li
                 className="text-xl"
