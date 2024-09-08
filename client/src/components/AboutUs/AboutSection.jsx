@@ -1,8 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
 import about_img from "../../assets/about_us.png";
+import { useTranslation } from "react-i18next"; // Import useTranslation hook
 
 const AboutSection = ({ handleButtonClick }) => {
+  const { t } = useTranslation(); // Use the hook to access translations
+
   return (
     <div className="hero py-8 sm:py-14 bg-base-300">
       <div className="hero-content grid md:grid-cols-2 gap-8">
@@ -21,27 +24,26 @@ const AboutSection = ({ handleButtonClick }) => {
         >
           <h1
             className="text-5xl font-bold leading-normal"
-            style={{ fontFamily: "'El Messiri', sans-serif", direction: "rtl" }}
+            style={{ fontFamily: "'El Messiri', sans-serif" }}
           >
-            من نحن
+            {t('about.about_title')} {/* Use the translation key */}
           </h1>
           <div className="block md:hidden">
             <img src={about_img} alt="About" className="w-1/2 h-auto mx-auto" />
           </div>
           <p
             className="py-6 text-xl sm:text-3xl"
-            style={{ fontFamily: "'El Messiri', sans-serif", direction: "rtl" }}
+            style={{ fontFamily: "'El Messiri', sans-serif" }}
           >
-            اكتشف عالم تسعير السيارات المستعملة مع ثمنها. سهل، بسيط، ومفيد – نحن
-            نجعل تقدير قيمة سيارتك أمراً سهلاً ودقيقاً
+            {t('about.about_text')} {/* Use the translation key */}
           </p>
 
           <button
             className="btn btn-neutral w-1/2 text-xl mt-4"
-            style={{ fontFamily: "'El Messiri', sans-serif", direction: "rtl" }}
+            style={{ fontFamily: "'El Messiri', sans-serif" }}
             onClick={handleButtonClick}
           >
-            هدفنا
+            {t('about.about_button')} {/* Use the translation key */}
           </button>
         </motion.div>
       </div>

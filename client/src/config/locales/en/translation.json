@@ -9,5 +9,10 @@
   "navbar": {
     "Estimator": "Estimator",
     "Reports": "Reports"
+  },
+  "about": {
+    "about_title": "About Us",
+    "about_text": "Explore the world of used car pricing with Thammenha. Simple, user-friendly, and insightful – we make estimating your car's value easy and accurate.",
+    "about_button": "Our Goal"
   }
 }
