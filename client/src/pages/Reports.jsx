@@ -8,7 +8,7 @@ const Reports = () => {
   return (
     <Layout>
       <div className="bg-base-300 flex justify-center items-center h-screen">
-        <h1 className="text-4xl sm:text-5xl font-bold">
+        <h1 className="text-4xl sm:text-5xl font-bold" style={{ fontFamily: "'El Messiri', sans-serif" }}>
           {t('reports.coming_soon')} {/* Use the translation key */}
         </h1>
       </div>
