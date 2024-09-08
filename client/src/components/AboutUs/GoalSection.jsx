@@ -13,16 +13,16 @@ const GoalSection = forwardRef((props, ref) => {
     <div ref={ref} className="hero sm:py-16 bg-base-300">
       <div ref={inViewRef} className="hero-content grid md:grid-cols-2 gap-8">
         <motion.div
-          initial={{ x: "-100vw" }}
-          animate={inView ? { x: 0 } : { x: "-100vw" }}
+          initial={{ opacity: 0, x: -50 }} // Slight slide from the left with fade-in
+          animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
           transition={{ type: "spring", stiffness: 50 }}
           className="hidden md:block"
         >
           <img src={goal_img} alt="Goal" />
         </motion.div>
         <motion.div
-          initial={{ x: "-100vw" }}
-          animate={inView ? { x: 0 } : { x: "-100vw" }}
+          initial={{ opacity: 0, x: -50 }} // Slight slide from the left with fade-in
+          animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
           transition={{ type: "spring", stiffness: 50 }}
         >
           <h1
