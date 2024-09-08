@@ -3,9 +3,11 @@ import { motion } from "framer-motion";
 import goal_img from "../../assets/goal_img.png";
 import { Link } from "react-router-dom";
 import useInView from "../../hooks/useInView";
+import { useTranslation } from "react-i18next"; // Import the useTranslation hook
 
 const GoalSection = forwardRef((props, ref) => {
   const [inViewRef, inView] = useInView({ triggerOnce: true });
+  const { t } = useTranslation(); // Use the hook to access translations
 
   return (
     <div ref={ref} className="hero sm:py-16 bg-base-300">
@@ -25,28 +27,26 @@ const GoalSection = forwardRef((props, ref) => {
         >
           <h1
             className="text-5xl font-bold leading-normal"
-            style={{ fontFamily: "'El Messiri', sans-serif", direction: "rtl" }}
+            style={{ fontFamily: "'El Messiri', sans-serif" }}
           >
-            هدفنا
+            {t("goal.about_title")} {/* Use the translation key */}
           </h1>
           <div className="block md:hidden">
             <img src={goal_img} alt="Goal" className="w-1/2 h-auto mx-auto" />
           </div>
           <p
             className="py-6 text-xl sm:text-3xl"
-            style={{ fontFamily: "'El Messiri', sans-serif", direction: "rtl" }}
+            style={{ fontFamily: "'El Messiri', sans-serif" }}
           >
-            في ثمنها، نسعى جاهدين لتغيير الطريقة التي تفهم بها قيم السيارات
-            المستعملة. نهدف إلى تقديم دقة واستبصارات استثنائية، مما يجعل عملية
-            تقييم قيمة سيارتك سهلة وموثوقة
+            {t("goal.about_text")} {/* Use the translation key */}
           </p>
 
           <Link
             to={"/"}
             className="btn btn-neutral w-1/2 text-xl mt-4 mb-16"
-            style={{ fontFamily: "'El Messiri', sans-serif", direction: "rtl" }}
+            style={{ fontFamily: "'El Messiri', sans-serif" }}
           >
-            العودة إلى الصفحة الرئيسية
+            {t("goal.about_button")} {/* Use the translation key */}
           </Link>
         </motion.div>
       </div>

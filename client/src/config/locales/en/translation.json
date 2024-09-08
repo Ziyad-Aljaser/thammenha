@@ -14,5 +14,10 @@
     "about_title": "About Us",
     "about_text": "Explore the world of used car pricing with Thammenha. Simple, user-friendly, and insightful – we make estimating your car's value easy and accurate.",
     "about_button": "Our Goal"
+  },
+  "goal": {
+    "about_title": "Our Goal",
+    "about_text": "At Thammenha, we are on a mission to transform how you understand used car values. We strive to deliver exceptional accuracy and insights, making the process of evaluating your car’s worth simple and reliable.",
+    "about_button": "Back Home"
   }
 }
