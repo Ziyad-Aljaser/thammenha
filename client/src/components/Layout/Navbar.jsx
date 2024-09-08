@@ -135,7 +135,7 @@ const Navbar = () => {
             className="btn btn-ghost normal-case text-3xl"
             style={{ fontFamily: "'El Messiri', sans-serif", direction: "rtl" }}
           >
-            ثمنها
+            {t("navbar.title")} {/* Use the translation key */}
             <div className="w-16 rounded-full">
               <img src={logo} alt="Logo" />
             </div>
