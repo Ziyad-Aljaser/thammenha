@@ -1,7 +1,7 @@
 {
   "home": {
     "welcome": "Welcome to Thammenha, Your Personal Used Car Price Estimator!",
-    "description": "Easily estimate your car's value with just a few clicks! Input key details and let our AI do the rest.",
+    "description": "Easily estimate your car's value with just a few clicks! Input key details and let our AI do the rest",
     "coming_soon": "Coming soon: Photo assessment for accidents!",
     "about_us": "About Us",
     "get_started": "Get Started"
@@ -13,12 +13,12 @@
   },
   "about": {
     "about_title": "About Us",
-    "about_text": "Explore the world of used car pricing with Thammenha. Simple, user-friendly, and insightful – we make estimating your car's value easy and accurate.",
+    "about_text": "Explore the world of used car pricing with Thammenha. Simple, user-friendly, and insightful – we make estimating your car's value easy and accurate",
     "about_button": "Our Goal"
   },
   "goal": {
     "about_title": "Our Goal",
-    "about_text": "At Thammenha, we are on a mission to transform how you understand used car values. We strive to deliver exceptional accuracy and insights, making the process of evaluating your car’s worth simple and reliable.",
+    "about_text": "At Thammenha, we are on a mission to transform how you understand used car values. We strive to deliver exceptional accuracy and insights, making the process of evaluating your car’s worth simple and reliable",
     "about_button": "Back Home"
   },
     "estimator": {
