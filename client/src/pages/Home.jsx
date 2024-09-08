@@ -32,7 +32,7 @@ const Home = () => {
               className="text-4xl sm:text-5xl font-bold leading-normal"
               style={{ fontFamily: "'El Messiri', sans-serif" }}
             >
-              {t('welcome')}
+              {t('home.welcome')}
             </h1>
 
             {/* Image for Small Screens */}
@@ -44,14 +44,14 @@ const Home = () => {
               className="pt-6 text-3xl leading-normal"
               style={{ fontFamily: "'El Messiri', sans-serif" }}
             >
-              {t('description')}
+              {t('home.description')}
             </p>
 
             <p
               className="pb-12 text-md leading-normal"
               style={{ fontFamily: "'El Messiri', sans-serif" }}
             >
-              {t('coming_soon')}
+              {t('home.coming_soon')}
             </p>
 
             <div className="flex justify-center gap-2">
@@ -60,7 +60,7 @@ const Home = () => {
                 className="btn btn-neutral flex-grow text-xl"
                 style={{ fontFamily: "'El Messiri', sans-serif" }}
               >
-                {t('about_us')}
+                {t('home.about_us')}
               </Link>
 
               {!currentUser && (
@@ -69,7 +69,7 @@ const Home = () => {
                   className="btn btn-neutral flex-grow text-xl ml-2"
                   style={{ fontFamily: "'El Messiri', sans-serif" }}
                 >
-                  {t('get_started')}
+                  {t('home.get_started')}
                 </Link>
               )}
             </div>
