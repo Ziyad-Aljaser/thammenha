@@ -39,5 +39,8 @@
     "yes": "نعم",
     "no": "لا",
     "estimate": "تقدير"
+  },
+  "reports": {
+    "coming_soon": "قريباً ..."
   }
 }

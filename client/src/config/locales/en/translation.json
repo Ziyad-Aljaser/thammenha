@@ -39,6 +39,8 @@
       "yes": "Yes",
       "no": "No",
       "estimate": "Estimate"
+    },
+    "reports": {
+      "coming_soon": "Coming Soon ..."
     }
-  
 }
