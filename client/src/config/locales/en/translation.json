@@ -5,5 +5,9 @@
     "coming_soon": "Coming soon: Photo assessment for accidents!",
     "about_us": "About Us",
     "get_started": "Get Started"
+  },
+  "navbar": {
+    "Estimator": "Estimator",
+    "Reports": "Reports"
   }
 }

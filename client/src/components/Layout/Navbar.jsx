@@ -43,7 +43,7 @@ const Navbar = () => {
     document.querySelector("html").setAttribute("data-theme", localTheme);
   }, [theme]);
 
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [language, setLanguage] = useState(
     localStorage.getItem("language") ? localStorage.getItem("language") : "ar"
   );
@@ -100,12 +100,12 @@ const Navbar = () => {
                       Welcome, {currentUser.displayName}!
                     </span>
                   </li>
-                  <dic className="divider"></dic>
+                  <div className="divider"></div>
                   <li>
-                    <Link to="/analysis">Estimator</Link>
+                    <Link to="/analysis">{t("navbar.Estimator")}</Link>
                   </li>
                   <li>
-                    <Link to="/reports">Reports</Link>
+                    <Link to="/reports">{t("navbar.Reports")}</Link>
                   </li>
                   <div className="divider"></div> {/* Styled as a divider */}
                 </>
@@ -152,7 +152,7 @@ const Navbar = () => {
                   direction: "rtl",
                 }}
               >
-                <Link to="/analysis">التقدير</Link>
+                <Link to="/analysis">{t("navbar.Estimator")}</Link>
               </li>
               <li
                 className="text-xl"
@@ -161,7 +161,7 @@ const Navbar = () => {
                   direction: "rtl",
                 }}
               >
-                <Link to="/reports">التقارير</Link>
+                <Link to="/reports">{t("navbar.Reports")}</Link>
               </li>
             </ul>
           </div>
