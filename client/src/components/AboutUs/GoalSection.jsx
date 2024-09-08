@@ -23,18 +23,30 @@ const GoalSection = forwardRef((props, ref) => {
           animate={inView ? { x: 0 } : { x: "-100vw" }}
           transition={{ type: "spring", stiffness: 50 }}
         >
-          <h1 className="text-5xl font-bold leading-normal">Our Goal</h1>
+          <h1
+            className="text-5xl font-bold leading-normal"
+            style={{ fontFamily: "'El Messiri', sans-serif", direction: "rtl" }}
+          >
+            هدفنا
+          </h1>
           <div className="block md:hidden">
             <img src={goal_img} alt="Goal" className="w-1/2 h-auto mx-auto" />
           </div>
-          <p className="py-6 text-xl sm:text-3xl">
-            At Thammenha, we are on a mission to transform how you understand
-            used car values. We strive to deliver exceptional accuracy and
-            insights, making the process of evaluating your car’s worth simple
-            and reliable.
+          <p
+            className="py-6 text-xl sm:text-3xl"
+            style={{ fontFamily: "'El Messiri', sans-serif", direction: "rtl" }}
+          >
+            في ثمنها، نسعى جاهدين لتغيير الطريقة التي تفهم بها قيم السيارات
+            المستعملة. نهدف إلى تقديم دقة واستبصارات استثنائية، مما يجعل عملية
+            تقييم قيمة سيارتك سهلة وموثوقة
           </p>
-          <Link to={"/"} className="btn btn-neutral w-1/2 text-xl mt-4 mb-16">
-            Back Home
+
+          <Link
+            to={"/"}
+            className="btn btn-neutral w-1/2 text-xl mt-4 mb-16"
+            style={{ fontFamily: "'El Messiri', sans-serif", direction: "rtl" }}
+          >
+            العودة إلى الصفحة الرئيسية
           </Link>
         </motion.div>
       </div>

@@ -30,8 +30,14 @@ const Home = () => {
             animate={{ x: 0 }}
             transition={{ type: "spring", stiffness: 50 }} // Adjusted properties
           >
-            <h1 className="text-4xl sm:text-5xl font-bold leading-normal">
-              Welcome to Thammenha, Your Personal Used Car Price Estimator!
+            <h1
+              className="text-4xl sm:text-5xl font-bold leading-normal"
+              style={{
+                fontFamily: "'El Messiri', sans-serif",
+                direction: "rtl",
+              }}
+            >
+              مرحبًا بك في ثمنها، منصة تقدير أسعار السيارات المستعملة!
             </h1>
 
             {/* The image for small screen */}
@@ -39,18 +45,39 @@ const Home = () => {
               <img src={hero_img} alt="Hero" className="w-4/6 h-auto mx-auto" />
             </div>
 
-            <p className="pt-6 text-3xl leading-normal">
-              Easily Estimate Your Car's Value with Just a Few Clicks! Input Key
-              Details and Let Our AI Do the Rest.
+            <p
+              className="pt-6 text-3xl leading-normal"
+              style={{
+                fontFamily: "'El Messiri', sans-serif",
+                direction: "rtl",
+              }}
+            >
+              قدّر قيمة سيارتك بسهولة وبسرعة! أدخل التفاصيل الأساسية واترك
+              الباقي لنظام الذكاء الاصطناعي الخاص بنا
             </p>
-            <p className="pb-12 text-md leading-normal">
-              Coming Soon: Photo Assessment for Accidents!
+
+            <p
+              className="pb-12 text-md leading-normal"
+              style={{
+                fontFamily: "'El Messiri', sans-serif",
+                direction: "rtl",
+              }}
+            >
+              قريباً: إمكانية تقييم الصور للكشف عن الحوادث!
             </p>
 
             <div className="flex justify-center gap-2">
-              <Link to="/about" className="btn btn-neutral flex-grow text-xl">
-                About us
+              <Link
+                to="/about"
+                className="btn btn-neutral flex-grow text-xl"
+                style={{
+                  fontFamily: "'El Messiri', sans-serif",
+                  direction: "rtl",
+                }}
+              >
+                من نحن
               </Link>
+
               {!currentUser && (
                 <Link
                   to="/signup"

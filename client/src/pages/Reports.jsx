@@ -67,7 +67,7 @@ const Reports = () => {
       <Layout>
         <div className="bg-base-300 flex justify-center items-center h-screen">
           <h1 className="text-4xl sm:text-5xl font-bold">
-            There Are No Reports Available
+            Coming Soon ...
           </h1>
         </div>
       </Layout>

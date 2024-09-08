@@ -19,20 +19,29 @@ const AboutSection = ({ handleButtonClick }) => {
           animate={{ x: 0 }}
           transition={{ type: "spring", stiffness: 50 }}
         >
-          <h1 className="text-5xl font-bold leading-normal">About Us</h1>
+          <h1
+            className="text-5xl font-bold leading-normal"
+            style={{ fontFamily: "'El Messiri', sans-serif", direction: "rtl" }}
+          >
+            من نحن
+          </h1>
           <div className="block md:hidden">
             <img src={about_img} alt="About" className="w-1/2 h-auto mx-auto" />
           </div>
-          <p className="py-6 text-xl sm:text-3xl">
-            Explore the world of used car pricing with Thammenha. Simple,
-            user-friendly, and insightful – we make estimating your car's value
-            easy and accurate.
+          <p
+            className="py-6 text-xl sm:text-3xl"
+            style={{ fontFamily: "'El Messiri', sans-serif", direction: "rtl" }}
+          >
+            اكتشف عالم تسعير السيارات المستعملة مع ثمنها. سهل، بسيط، ومفيد – نحن
+            نجعل تقدير قيمة سيارتك أمراً سهلاً ودقيقاً
           </p>
+
           <button
             className="btn btn-neutral w-1/2 text-xl mt-4"
+            style={{ fontFamily: "'El Messiri', sans-serif", direction: "rtl" }}
             onClick={handleButtonClick}
           >
-            Our Goal
+            هدفنا
           </button>
         </motion.div>
       </div>

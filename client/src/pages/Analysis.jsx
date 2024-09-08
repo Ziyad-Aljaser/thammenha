@@ -74,7 +74,7 @@ const Analysis = () => {
     <Layout>
       <div className="flex flex-col p-3 bg-base-300">
         <h1 className="text-4xl p-7 font-semibold flex justify-center mt-14">
-          Prediction Page
+          Estimator
         </h1>
 
         {showAnalysisCard && (

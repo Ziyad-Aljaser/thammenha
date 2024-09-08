@@ -77,7 +77,7 @@ const Navbar = () => {
                   </li>
                   <dic className="divider"></dic>
                   <li>
-                    <Link to="/analysis">Prediction</Link>
+                    <Link to="/analysis">Estimator</Link>
                   </li>
                   <li>
                     <Link to="/reports">Reports</Link>
@@ -105,22 +105,38 @@ const Navbar = () => {
               )}
             </ul>
           </div>
-          <Link to="/" className="btn btn-ghost normal-case text-2xl">
-            <div className="w-14 rounded-full">
+          <Link
+            to="/"
+            className="btn btn-ghost normal-case text-3xl"
+            style={{ fontFamily: "'El Messiri', sans-serif", direction: "rtl" }}
+          >
+            ثمنها
+            <div className="w-16 rounded-full">
               <img src={logo} alt="Logo" />
             </div>
-            Thammenha
           </Link>
         </div>
 
         {currentUser && (
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal p-0">
-              <li className="text-xl">
-                <Link to="/analysis">Prediction</Link>
+              <li
+                className="text-xl"
+                style={{
+                  fontFamily: "'El Messiri', sans-serif",
+                  direction: "rtl",
+                }}
+              >
+                <Link to="/analysis">التقدير</Link>
               </li>
-              <li className="text-xl">
-                <Link to="/reports">Reports</Link>
+              <li
+                className="text-xl"
+                style={{
+                  fontFamily: "'El Messiri', sans-serif",
+                  direction: "rtl",
+                }}
+              >
+                <Link to="/reports">التقارير</Link>
               </li>
             </ul>
           </div>
