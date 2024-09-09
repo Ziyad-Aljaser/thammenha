@@ -86,7 +86,7 @@ const Home = () => {
 
               {!currentUser && (
                 <Link
-                  to="/signup"
+                  to="/estimation"
                   className="btn btn-neutral flex-grow text-xl ml-2"
                   style={{ fontFamily: "'El Messiri', sans-serif" }}
                 >

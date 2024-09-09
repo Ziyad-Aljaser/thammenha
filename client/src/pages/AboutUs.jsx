@@ -1,6 +1,7 @@
+// Updated Code in AboutUs.jsx
 import React, { forwardRef } from "react";
 import { Link } from "react-router-dom";
-
+import { motion } from "framer-motion"; // Import framer-motion
 import { useTranslation } from "react-i18next";
 import Layout from "../components/Layout/Layout";
 import AboutSection from "../components/AboutUs/AboutSection";
@@ -9,7 +10,7 @@ import useSmoothScroll from "../hooks/useSmoothScroll";
 import TeamMemberCard from "../components/Team/TeamMemberCard";
 
 import EsraaImage from "../assets/team/esraa_img.jpg";
-import YasserImage from "../assets/team/yasser_img.jpg";
+import YasserImage from "../assets/team/yasser_img.jpeg";
 import RefalImage from "../assets/team/refal_img.jpg";
 
 import ahmedImg from "../assets/team/ahmed_img.jpeg";
@@ -72,6 +73,62 @@ const AboutUs = forwardRef((props, ref) => {
   const [targetRef, handleButtonClick] = useSmoothScroll();
   const { t } = useTranslation();
 
+  // Animation variants for the educator
+  const educatorVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 50,
+        damping: 20,
+      },
+    },
+  };
+
+  // Define animation variants for the rows
+  const rowVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 50,
+        damping: 20,
+        staggerChildren: 0.2, // Staggering effect for children
+      },
+    },
+  };
+
+  // Animation variants for staggered appearance
+  const teamVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 50,
+        damping: 20,
+        staggerChildren: 1, // 1 second delay between each card
+      },
+    },
+  };
+
+  // Individual card animation with slow appearance
+  const cardVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 2, // 2 seconds duration for slow appearance
+      },
+    },
+  };
+
   return (
     <Layout>
       <AboutSection handleButtonClick={handleButtonClick} />
@@ -93,7 +150,14 @@ const AboutUs = forwardRef((props, ref) => {
         <h2 className="text-3xl font-bold text-center mb-6">
           {t("about_us.educator_title")}
         </h2>
-        <div className="flex justify-center mb-12">
+        {/* Updated Educator Section with animation */}
+        <motion.div
+          className="flex justify-center mb-12"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={educatorVariants}
+        >
           <TeamMemberCard
             image={esraa.image}
             name={t(esraa.nameKey)}
@@ -102,12 +166,17 @@ const AboutUs = forwardRef((props, ref) => {
             className="m-4 w-full sm:w-3/4 md:w-2/3 lg:w-1/4"
             style={{ fontFamily: "'El Messiri', sans-serif" }}
           />
-        </div>
-
+        </motion.div>
         <h2 className="text-3xl font-bold text-center py-6">
           {t("about_us.instructors_title")}
         </h2>
-        <div className="flex flex-wrap justify-center gap-8 mb-12">
+        <motion.div
+          className="flex flex-wrap justify-center gap-8 mb-12"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={rowVariants}
+        >
           {instructors.map((instructor, index) => (
             <TeamMemberCard
               key={index}
@@ -119,24 +188,30 @@ const AboutUs = forwardRef((props, ref) => {
               style={{ fontFamily: "'El Messiri', sans-serif" }}
             />
           ))}
-        </div>
-
+        </motion.div>
         <h2 className="text-3xl font-bold text-center mb-6">
           {t("about_us.team_title")}
         </h2>
-        <div className="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 px-6">
+        <motion.div
+          className="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 px-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={teamVariants}
+        >
           {teamMembers.map((member, index) => (
-            <TeamMemberCard
-              key={index}
-              image={member.image}
-              name={t(member.nameKey)}
-              major={t(member.majorKey)}
-              linkedin={member.linkedin}
-              className="m-4"
-              style={{ fontFamily: "'El Messiri', sans-serif" }}
-            />
+            <motion.div key={index} variants={cardVariants}>
+              <TeamMemberCard
+                image={member.image}
+                name={t(member.nameKey)}
+                major={t(member.majorKey)}
+                linkedin={member.linkedin}
+                className="m-4"
+                style={{ fontFamily: "'El Messiri', sans-serif" }}
+              />
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
         <div className="flex justify-center items-center py-16">
           <Link
             to={"/"}

@@ -101,15 +101,15 @@ const Navbar = () => {
                     </span>
                   </li>
                   <div className="divider"></div>
-                  <li>
-                    <Link to="/analysis">{t("navbar.Estimator")}</Link>
-                  </li>
-                  <li>
-                    <Link to="/reports">{t("navbar.Reports")}</Link>
-                  </li>
-                  <div className="divider"></div> {/* Styled as a divider */}
                 </>
               )}
+              <li>
+                <Link to="/estimation">{t("navbar.Estimator")}</Link>
+              </li>
+              <li>
+                <Link to="/reports">{t("navbar.Reports")}</Link>
+              </li>
+              <div className="divider"></div> {/* Styled as a divider */}
               {currentUser ? (
                 <>
                   {/* Adjust CSS for -mt-0.5 effect if needed */}
@@ -142,7 +142,6 @@ const Navbar = () => {
           </Link>
         </div>
 
-        {currentUser && (
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal p-0">
               <li
@@ -165,7 +164,6 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
-        )}
 
         {/* User Section - Visible only on lg screens */}
         <div className="flex justify-end flex-1 px-2 hidden lg:flex">
