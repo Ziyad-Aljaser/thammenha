@@ -88,5 +88,26 @@
     "email_placeholder": "البريد الإلكتروني",
     "message_placeholder": "اكتب رسالتك هنا...",
     "submit": "إرسال"
+  },
+  "about_us": {
+    "main_title": "تعرف على فريقنا",
+    "educator_title": "مدربتنا",
+    "educator_name": "إسراء ماضي",
+    "educator_major": "عالمة بيانات | معلمة ذكاء اصطناعي",
+    "instructors_title": "مساعدين المدربة",
+    "instructors": {
+      "yasser_name": "ياسر المبدل",
+      "refal_name": "رفال البقمي",
+      "assistant_instructor": "مساعد مدرب"
+    },
+    "team_title": "أعضاء فريقنا",
+    "team_members": {
+      "ziayd_name": "زياد الجاسر",
+      "ahmed_name": "أحمد",
+      "salman_name": "سلمان",
+      "faisal_name": "فيصل",
+      "software_engineer": "مهندس برمجيات",
+      "data_scientist": "عالم بيانات"
+    }
   }
 }

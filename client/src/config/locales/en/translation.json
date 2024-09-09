@@ -87,5 +87,26 @@
     "email_placeholder": "email",
     "message_placeholder": "your message here...",
     "submit": "Submit"
+  },
+  "about_us": {
+    "main_title": "Meet Our Team",
+    "educator_title": "Our Educator",
+    "educator_name": "Esraa Madhi",
+    "educator_major": "Data Scientist | AI Educator",
+    "instructors_title": "Our Instructors",
+    "instructors": {
+      "yasser_name": "Yasser Almubaddil",
+      "refal_name": "Refal Alboqami",
+      "assistant_instructor": "Assistant Instructor"
+    },
+    "team_title": "Our Team Members",
+    "team_members": {
+      "ziayd_name": "Ziyad Aljaser",
+      "ahmed_name": "Ahmed",
+      "salman_name": "Salman",
+      "faisal_name": "Faisal",
+      "software_engineer": "Software Engineer",
+      "data_scientist": "Data Scientist"
+    }
   }
 }
