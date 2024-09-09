@@ -20,7 +20,7 @@ import SalmanImg from "../assets/team/salman_img.jpeg";
 const teamMembers = [
   {
     image: ZiyadImg,
-    nameKey: "about_us.team_members.ziayd_name",
+    nameKey: "about_us.team_members.ziyad_name",
     majorKey: "about_us.team_members.software_engineer",
     linkedin: "https://www.linkedin.com/in/johndoe/",
   },
@@ -28,19 +28,19 @@ const teamMembers = [
     image: ahmedImg,
     nameKey: "about_us.team_members.ahmed_name",
     majorKey: "about_us.team_members.data_scientist",
-    linkedin: "https://www.linkedin.com/in/janesmith/",
+    linkedin: "https://www.linkedin.com/in/ahmad-alsubhi-7087a5313/",
   },
   {
     image: SalmanImg,
     nameKey: "about_us.team_members.salman_name",
     majorKey: "about_us.team_members.data_scientist",
-    linkedin: "https://www.linkedin.com/in/alicejohnson/",
+    linkedin: "https://www.linkedin.com/in/salmangassem/",
   },
   {
     image: FaisalImg,
     nameKey: "about_us.team_members.faisal_name",
     majorKey: "about_us.team_members.data_scientist",
-    linkedin: "https://www.linkedin.com/in/bobbrown/",
+    linkedin: "https://www.linkedin.com/in/faisalmcs/",
   },
 ];
 
@@ -77,6 +77,7 @@ const AboutUs = forwardRef((props, ref) => {
       <AboutSection handleButtonClick={handleButtonClick} />
       <GoalSection ref={targetRef} />
       <div
+        id="meet-our-team"
         className="bg-base-300 py-16"
         style={{ fontFamily: "'El Messiri', sans-serif" }}
       >
@@ -103,7 +104,7 @@ const AboutUs = forwardRef((props, ref) => {
           />
         </div>
 
-        <h2 className="text-3xl font-bold text-center mb-6">
+        <h2 className="text-3xl font-bold text-center py-6">
           {t("about_us.instructors_title")}
         </h2>
         <div className="flex flex-wrap justify-center gap-8 mb-12">
@@ -114,7 +115,7 @@ const AboutUs = forwardRef((props, ref) => {
               name={t(instructor.nameKey)}
               major={t(instructor.majorKey)}
               linkedin={instructor.linkedin}
-              className="m-4 w-full sm:w-1/2 md:w-1/3 lg:w-1/4"
+              className="m-4 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 mb-24"
               style={{ fontFamily: "'El Messiri', sans-serif" }}
             />
           ))}
@@ -142,7 +143,7 @@ const AboutUs = forwardRef((props, ref) => {
             className="btn btn-neutral w-1/2 text-xl"
             style={{ fontFamily: "'El Messiri', sans-serif" }}
           >
-            {t("goal.about_button")}
+            {t("about_us.back_button")}
           </Link>
         </div>
       </div>

@@ -1,14 +1,13 @@
 import React, { forwardRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import goal_img from "../../assets/goal_img.png";
-import { Link } from "react-router-dom";
 import useInView from "../../hooks/useInView";
 import { useTranslation } from "react-i18next";
 
 const GoalSection = forwardRef((props, ref) => {
   const [inViewRef, inView] = useInView({ triggerOnce: true });
   const { t } = useTranslation();
-  
+
   // State to track if the animation has been triggered
   const [hasAnimated, setHasAnimated] = useState(false);
 
@@ -18,6 +17,15 @@ const GoalSection = forwardRef((props, ref) => {
       setHasAnimated(true);
     }
   }, [inView, hasAnimated]);
+
+  // Function to handle scrolling to the "Meet Our Team" section slightly above
+  const scrollToTeamSection = () => {
+    const teamSection = document.getElementById("meet-our-team");
+    if (teamSection) {
+      const offsetTop = teamSection.offsetTop - 40; // Adjust 100px above the section
+      window.scrollTo({ top: offsetTop, behavior: "smooth" });
+    }
+  };
 
   return (
     <div ref={ref} className="hero sm:py-16 bg-base-200">
@@ -39,7 +47,7 @@ const GoalSection = forwardRef((props, ref) => {
             className="text-5xl font-bold leading-normal"
             style={{ fontFamily: "'El Messiri', sans-serif" }}
           >
-            {t("goal.about_title")}
+            {t("goal.goal_title")}
           </h1>
           <div className="block md:hidden">
             <img src={goal_img} alt="Goal" className="w-1/2 h-auto mx-auto" />
@@ -48,16 +56,16 @@ const GoalSection = forwardRef((props, ref) => {
             className="py-6 text-xl sm:text-3xl"
             style={{ fontFamily: "'El Messiri', sans-serif" }}
           >
-            {t("goal.about_text")}
+            {t("goal.goal_text")}
           </p>
 
-          <Link
-            to={"/"}
+          <button
+            onClick={scrollToTeamSection}
             className="btn btn-neutral w-1/2 text-xl mt-4 mb-16"
             style={{ fontFamily: "'El Messiri', sans-serif" }}
           >
-            {t("goal.about_button")}
-          </Link>
+            {t("goal.goal_button")}
+          </button>
         </motion.div>
       </div>
     </div>
