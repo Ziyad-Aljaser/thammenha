@@ -1,11 +1,13 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 const ContactMethodsSection = () => {
+  const { t } = useTranslation();
+
   return (
     <div className="mb-4 w-full">
       {/* Address Section */}
       <div className="flex flex-row items-start">
-        {/* SVG container */}
         <div className="mr-6">
           <svg
             viewBox="0 0 512 512"
@@ -34,20 +36,19 @@ const ContactMethodsSection = () => {
 
         {/* Address container */}
         <div>
-          <p className="text-xl sm:text-3xl font-bold">Address</p>
+          <p className="text-xl sm:text-3xl font-bold">{t('contact_us.address')}</p>
           <p className="text-lg mb-12">
-            Tuwaiq Academy
+            {t('contact_us.address_line1')}
             <br />
-            Riyadh
+            {t('contact_us.address_line2')}
             <br />
-            Saudi Arabia
+            {t('contact_us.address_line3')}
           </p>
         </div>
       </div>
 
       {/* Phone Section */}
       <div className="flex flex-row items-start">
-        {/* SVG container */}
         <div className="mr-6">
           <svg fill="currentColor" viewBox="0 0 16 16" height="3em" width="3em">
             <path d="M3.654 1.328a.678.678 0 00-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 004.168 6.608 17.569 17.569 0 006.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 00-.063-1.015l-2.307-1.794a.678.678 0 00-.58-.122l-2.19.547a1.745 1.745 0 01-1.657-.459L5.482 8.062a1.745 1.745 0 01-.46-1.657l.548-2.19a.678.678 0 00-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 012.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 00.178.643l2.457 2.457a.678.678 0 00.644.178l2.189-.547a1.745 1.745 0 011.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 01-7.01-4.42 18.634 18.634 0 01-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
@@ -56,14 +57,13 @@ const ContactMethodsSection = () => {
 
         {/* Phone container */}
         <div>
-          <p className="text-xl sm:text-3xl font-bold">Phone</p>
-          <p className="text-lg mb-12">+966 920022030</p>
+          <p className="text-xl sm:text-3xl font-bold">{t('contact_us.phone')}</p>
+          <p className="text-lg mb-12">{t('contact_us.phone_number')}</p>
         </div>
       </div>
 
       {/* Email Section */}
       <div className="flex flex-row items-start">
-        {/* SVG container */}
         <div className="mr-6">
           <svg viewBox="0 0 24 24" fill="currentColor" height="3em" width="3em">
             <path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6m-2 0l-8 5-8-5h16m0 12H4V8l8 5 8-5v10z" />
@@ -72,8 +72,8 @@ const ContactMethodsSection = () => {
 
         {/* Email container */}
         <div>
-          <p className="text-xl sm:text-3xl font-bold">Email</p>
-          <p className="text-lg mb-12">Care@Tweeq.sa</p>
+          <p className="text-xl sm:text-3xl font-bold">{t('contact_us.email')}</p>
+          <p className="text-lg mb-12">{t('contact_us.email_address')}</p>
         </div>
       </div>
     </div>

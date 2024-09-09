@@ -21,26 +21,44 @@
     "about_text": "At Thammenha, we are on a mission to transform how you understand used car values. We strive to deliver exceptional accuracy and insights, making the process of evaluating your car’s worth simple and reliable",
     "about_button": "Back Home"
   },
-    "estimator": {
-      "estimator_title": "Estimator",
-      "select_market": "Select Market",
-      "usa_market": "USA Market",
-      "ksa_market": "KSA Market",
-      "select_car_make": "Select Car Make",
-      "choose_make": "Choose Make",
-      "select_car_model": "Select Car Model",
-      "choose_model": "Choose Model",
-      "year": "Year",
-      "select_year": "Select Year",
-      "mileage": "Mileage",
-      "enter_mileage": "Enter Mileage",
-      "clean_title": "Clean Title",
-      "select_option": "Select Option",
-      "yes": "Yes",
-      "no": "No",
-      "estimate": "Estimate"
-    },
-    "reports": {
-      "coming_soon": "Coming Soon ..."
-    }
+  "estimator": {
+    "estimator_title": "Estimator",
+    "select_market": "Select Market",
+    "usa_market": "USA Market",
+    "ksa_market": "KSA Market",
+    "select_car_make": "Select Car Make",
+    "choose_make": "Choose Make",
+    "select_car_model": "Select Car Model",
+    "choose_model": "Choose Model",
+    "year": "Year",
+    "select_year": "Select Year",
+    "mileage": "Mileage",
+    "enter_mileage": "Enter Mileage",
+    "clean_title": "Clean Title",
+    "select_option": "Select Option",
+    "yes": "Yes",
+    "no": "No",
+    "estimate": "Estimate"
+  },
+  "reports": {
+    "coming_soon": "Coming Soon ..."
+  },
+  "contact_us": {
+    "title": "Contact Us",
+    "address": "Address",
+    "address_line1": "Tuwaiq Academy",
+    "address_line2": "Riyadh",
+    "address_line3": "Saudi Arabia",
+    "phone": "Phone",
+    "phone_number": "+966 920022030",
+    "email": "Email",
+    "email_address": "Care@Tweeq.sa",
+    "full_name": "Full Name",
+    "email_label": "Email",
+    "message": "Message",
+    "full_name_placeholder": "full name",
+    "email_placeholder": "email",
+    "message_placeholder": "your message here...",
+    "submit": "Submit"
+  }
 }

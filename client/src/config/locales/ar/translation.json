@@ -42,5 +42,23 @@
   },
   "reports": {
     "coming_soon": "قريباً ..."
+  },
+  "contact_us": {
+    "title": "اتصل بنا",
+    "address": "العنوان",
+    "address_line1": "أكاديمية طويق",
+    "address_line2": "الرياض",
+    "address_line3": "المملكة العربية السعودية",
+    "phone": "رقم الهاتف",
+    "phone_number": "920022030",
+    "email": "البريد الإلكتروني",
+    "email_address": "Care@Tweeq.sa",
+    "full_name": "الاسم الكامل",
+    "email_label": "البريد الإلكتروني",
+    "message": "الرسالة",
+    "full_name_placeholder": "الاسم الكامل",
+    "email_placeholder": "البريد الإلكتروني",
+    "message_placeholder": "اكتب رسالتك هنا...",
+    "submit": "إرسال"
   }
 }
