@@ -88,6 +88,7 @@
     "message_placeholder": "your message here...",
     "submit": "Submit"
   },
+
   "about_us": {
     "main_title": "Meet Our Team",
     "educator_title": "Our Educator",
@@ -108,7 +109,9 @@
       "software_engineer": "Software Engineer",
       "data_scientist": "Data Scientist"
     },
+    "sponsor_title": "Our Strategic Partner",
+    "sponsor_name": "Tuwaiq Academy",
+    "sponsor_description": "Education Administration Programs",
     "back_button": "Back Home"
-    
   }
 }

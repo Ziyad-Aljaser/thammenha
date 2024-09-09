@@ -18,6 +18,19 @@ import FaisalImg from "../assets/team/faisal_img.jpeg";
 import ZiyadImg from "../assets/team/ziyad_img.jpeg";
 import SalmanImg from "../assets/team/salman_img.jpeg";
 
+import TuwaiqImage from "../assets/Tuwaiq_background.png";
+
+import TuwaiqLogo from "../assets/tuwaiq_logo.jpg"; // Import the image for Tuwaiq
+
+// Tuwaiq Sponsor Details
+const tuwaiq = {
+  image: TuwaiqLogo,
+  nameKey: "about_us.sponsor_name", // Using the translation key for Tuwaiq Academy
+  majorKey: "about_us.sponsor_description", // Using the translation key for Education Administration Programs
+  linkedin:
+    "https://www.linkedin.com/company/tuwaiqacademy/posts/?feedView=all",
+};
+
 const teamMembers = [
   {
     image: ZiyadImg,
@@ -42,6 +55,7 @@ const teamMembers = [
     nameKey: "about_us.team_members.faisal_name",
     majorKey: "about_us.team_members.data_scientist",
     linkedin: "https://www.linkedin.com/in/faisalmcs/",
+    website: "https://tuwaiq.edu.sa/", // Tuwaiq's website
   },
 ];
 
@@ -73,6 +87,20 @@ const AboutUs = forwardRef((props, ref) => {
   const [targetRef, handleButtonClick] = useSmoothScroll();
   const { t } = useTranslation();
 
+  // Animation variants for the sponsor card
+  const sponsorVariants = {
+    hidden: { opacity: 0, x: -50 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        type: "spring",
+        stiffness: 50,
+        damping: 20,
+      },
+    },
+  };
+
   // Animation variants for the educator
   const educatorVariants = {
     hidden: { opacity: 0, y: 50 },
@@ -87,8 +115,8 @@ const AboutUs = forwardRef((props, ref) => {
     },
   };
 
-  // Define animation variants for the rows
-  const rowVariants = {
+  // Define animation variants for the instructors
+  const instructorsVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: {
       opacity: 1,
@@ -147,10 +175,38 @@ const AboutUs = forwardRef((props, ref) => {
         className="bg-base-300"
         style={{ fontFamily: "'El Messiri', sans-serif" }}
       >
-        <h2 className="text-3xl font-bold text-center mb-6">
+        {/* Tuwaiq Sponsor Section */}
+        <h2 className="text-3xl font-bold text-center mb-8">
+          {t("about_us.sponsor_title")}
+        </h2>
+        <motion.div
+          className="flex flex-col md:flex-row items-center justify-center gap-6 mb-12 px-6 md:px-24"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={sponsorVariants}
+        >
+          <TeamMemberCard
+            image={tuwaiq.image}
+            name={t(tuwaiq.nameKey)} // Correctly using the translation function
+            major={t(tuwaiq.majorKey)} // Correctly using the translation function
+            linkedin={tuwaiq.linkedin}
+            className="m-4 w-full sm:w-3/4 md:w-1/2 lg:w-1/3"
+            style={{ fontFamily: "'El Messiri', sans-serif" }}
+          />
+          <figure className="m-4 w-full sm:w-3/4 md:w-1/2 lg:w-1/3">
+            <img
+              src={TuwaiqImage}
+              alt="Tuwaiq Academy"
+              className="w-full h-auto object-cover rounded-lg"
+            />
+          </figure>
+        </motion.div>
+
+        {/* Educator Sponsor Section */}
+        <h2 className="text-3xl font-bold text-center py-6">
           {t("about_us.educator_title")}
         </h2>
-        {/* Updated Educator Section with animation */}
         <motion.div
           className="flex justify-center mb-12"
           initial="hidden"
@@ -167,6 +223,8 @@ const AboutUs = forwardRef((props, ref) => {
             style={{ fontFamily: "'El Messiri', sans-serif" }}
           />
         </motion.div>
+
+        {/* Instructors Sponsor Section */}
         <h2 className="text-3xl font-bold text-center py-6">
           {t("about_us.instructors_title")}
         </h2>
@@ -175,7 +233,7 @@ const AboutUs = forwardRef((props, ref) => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          variants={rowVariants}
+          variants={instructorsVariants}
         >
           {instructors.map((instructor, index) => (
             <TeamMemberCard
@@ -189,6 +247,8 @@ const AboutUs = forwardRef((props, ref) => {
             />
           ))}
         </motion.div>
+
+        {/* Team Sponsor Section */}
         <h2 className="text-3xl font-bold text-center mb-6">
           {t("about_us.team_title")}
         </h2>

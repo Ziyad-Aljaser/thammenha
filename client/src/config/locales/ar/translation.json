@@ -89,6 +89,7 @@
     "message_placeholder": "اكتب رسالتك هنا...",
     "submit": "إرسال"
   },
+
   "about_us": {
     "main_title": "تعرف على فريقنا",
     "educator_title": "مدربتنا",
@@ -109,6 +110,9 @@
       "software_engineer": "مهندس برمجيات",
       "data_scientist": "عالم بيانات"
     },
+    "sponsor_title": "شريكنا الاستراتيجي",
+    "sponsor_name": "أكاديمية طويق",
+    "sponsor_description": "الأولى من نوعها في تقديم المعسكرات والبرامج التعليمية في مجالات التقنيات المتقدمة",
     "back_button": "العودة إلى الصفحة الرئيسية"
   }
 }
