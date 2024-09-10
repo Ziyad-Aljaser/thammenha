@@ -98,7 +98,7 @@ const Estimation = () => {
     <Layout>
       <div className="flex flex-col p-3 bg-base-300">
         <h1
-          className="text-4xl p-7 font-semibold flex justify-center mt-8"
+          className="text-4xl p-7 font-semibold flex justify-center mt-6"
           style={{ fontFamily: "'El Messiri', sans-serif" }}
         >
           {showVisualization

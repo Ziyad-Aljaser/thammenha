@@ -46,7 +46,7 @@ const VisualizationSection = ({ predictedPrice }) => {
 
   return (
     <div className="flex items-center justify-center bg-base-300 p-5">
-      <div className="card w-1/2 glass shadow-xl p-6 mb-6">
+      <div className="card w-1/2 glass shadow-xl p-6 mb-6 bg-base-200">
         <div className="card-body items-center">
           <p
             className="text-2xl"
