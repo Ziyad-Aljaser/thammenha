@@ -16,8 +16,6 @@ const Home = () => {
   const isArabic = i18n.language === "ar";
   const heroImg = isArabic ? hero_img_ar : hero_img_en; // Choose the image based on the language
 
-  console.log(t("home.welcome").split("Thammenha")[1]);
-
   return (
     <Layout>
       <div className="hero py-12 sm:py-16 bg-base-300">

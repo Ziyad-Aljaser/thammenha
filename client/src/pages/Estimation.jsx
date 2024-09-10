@@ -5,8 +5,25 @@ import { useAuth } from "../hooks/useAuth";
 import carModelsUSA from "../data/car_models.json";
 import carModelsKSA from "../data/carModels.json";
 import { useTranslation } from "react-i18next"; // Import useTranslation
+import { fetchExpectedPrice } from "../utils/PythonAPI";
 
 const Estimation = () => {
+  const carDetails = {
+    Car_Brands: "Lexus", // Must match one of the expected brands
+    Car_Models: "LX", // Must match one of the expected models
+    Car_Years: 2020, // int: Year of the car
+    Car_Kilometers: 15000, // int: Kilometers driven
+    Car_Fuel_Types: "Gasoline", // str: Ensure correct fuel type is used
+    Car_Gear_Types: "Automatic", // str: Ensure correct gear type
+    Car_Engine_Sizes: 1.8, // float: Engine size
+    Car_Drivetrains: "FWD", // str: Drivetrain type
+    Car_Extensions: "500", // str: Must match one of the expected extensions
+    Car_Exterior_Colors: "Black", // str: Must match expected color
+    Car_Interior_Colors: "Camel", // str: Must match expected interior color
+    Car_Seat_Numbers: 5, // int: Number of seats
+    Car_Origins: "Saudi", // str: Must match expected origin
+  };
+
   const { t } = useTranslation(); // Use the hook to access translations
   const [showAnalysisCard, setShowAnalysisCard] = useState(true);
   const [showVisualization, setShowVisualization] = useState(false);
@@ -44,6 +61,9 @@ const Estimation = () => {
       setAllModels(carModelsUSA);
     } else if (market === "KSA") {
       setAllModels(carModelsKSA);
+      fetchExpectedPrice(carDetails)
+        .then((price) => console.log("Expected Price:", price))
+        .catch((error) => console.error("Error:", error));
     } else {
       setAllModels([]);
     }
