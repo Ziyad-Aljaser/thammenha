@@ -4,11 +4,14 @@ import pandas as pd
 import joblib
 import numpy as np
 from sklearn.metrics.pairwise import cosine_distances
+from asgiref.wsgi import WsgiToAsgi
 
 # Define your Flask app
 app = Flask(__name__)
 CORS(app)  # Enable CORS
 
+# Wrap the Flask app with ASGI middleware
+asgi_app = WsgiToAsgi(app)
 
 def map_user_input_to_df(user_input):
     '''
