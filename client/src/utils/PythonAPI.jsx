@@ -3,7 +3,7 @@ export async function fetchExpectedPrice(carDetails) {
   console.log("Sending car details:", carDetails);
 
   try {
-    const response = await fetch("https://thammenha.onrender.com/predict/ksa", { // Updated to local endpoint
+    const response = await fetch("https://thammenha-api.onrender.com/predict/ksa", { // Updated to local endpoint
       method: "POST",
       headers: {
         "Content-Type": "application/json",

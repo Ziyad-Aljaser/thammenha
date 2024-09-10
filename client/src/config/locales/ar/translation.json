@@ -43,7 +43,7 @@
     "enter_brand": "أدخل الماركة",
     "fuel_type": "نوع الوقود",
     "select_fuel_type": "اختر نوع الوقود",
-    "petrol": "بنزين",
+    "gasoline": "بنزين",
     "diesel": "ديزل",
     "electric": "كهرباء",
     "engine_size": "حجم المحرك",
@@ -128,5 +128,11 @@
     "contact": "اتصل بنا",
     "github_link": "عرض على GitHub",
     "copyright": "حقوق الطبع والنشر © 2024 - جميع الحقوق محفوظة لثمنها"
+  },
+  "visualization": {
+    "prediction_result": "نتيجة التقدير",
+    "estimated_price": "السعر المقدر هو:",
+    "loading": "جار التحميل...",
+    "go_home": "العودة إلى الصفحة الرئيسية"
   }
 }

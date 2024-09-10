@@ -43,7 +43,7 @@
     "enter_brand": "Enter Brand",
     "fuel_type": "Fuel Type",
     "select_fuel_type": "Select Fuel Type",
-    "petrol": "Petrol",
+    "gasoline": "Gasoline",
     "diesel": "Diesel",
     "electric": "Electric",
     "engine_size": "Engine Size",
@@ -128,5 +128,12 @@
     "contact": "Contact",
     "github_link": "View on GitHub",
     "copyright": "Copyright © 2024 - All rights reserved by Thammenha"
+  },
+  "visualization": {
+    "prediction_result": "estimatation Result",
+    "estimated_price": "The estimated price is:",
+    "loading": "Loading...",
+    "go_home": "Go Back Home"
+
   }
 }

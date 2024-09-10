@@ -1,80 +1,49 @@
 import React, { useState, useEffect } from "react";
 import Layout from "../components/Layout/Layout";
 import VisualizationSection from "../components/Analysis/VisualizationSection";
-import { useAuth } from "../hooks/useAuth";
 import carModelsUSA from "../data/car_models.json";
 import carModelsKSA from "../data/carModels.json";
-import { useTranslation } from "react-i18next"; // Import useTranslation
+import { useTranslation } from "react-i18next";
 import { fetchExpectedPrice } from "../utils/PythonAPI";
 
 const Estimation = () => {
-  const carDetails = {
-    Car_Brands: "Lexus", // Must match one of the expected brands
-    Car_Models: "LX", // Must match one of the expected models
-    Car_Years: 2020, // int: Year of the car
-    Car_Kilometers: 15000, // int: Kilometers driven
-    Car_Fuel_Types: "Gasoline", // str: Ensure correct fuel type is used
-    Car_Gear_Types: "Automatic", // str: Ensure correct gear type
-    Car_Engine_Sizes: 1.8, // float: Engine size
-    Car_Drivetrains: "FWD", // str: Drivetrain type
-    Car_Extensions: "500", // str: Must match one of the expected extensions
-    Car_Exterior_Colors: "Black", // str: Must match expected color
-    Car_Interior_Colors: "Camel", // str: Must match expected interior color
-    Car_Seat_Numbers: 5, // int: Number of seats
-    Car_Origins: "Saudi", // str: Must match expected origin
-  };
-
-  const { t } = useTranslation(); // Use the hook to access translations
+  const { t } = useTranslation();
   const [showAnalysisCard, setShowAnalysisCard] = useState(true);
   const [showVisualization, setShowVisualization] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const { currentUser } = useAuth();
-  const userID = currentUser?.uid;
-
-  const [market, setMarket] = useState(""); // State for market selection
+  const [market, setMarket] = useState("");
   const [selectedMake, setSelectedMake] = useState("");
   const [selectedModel, setSelectedModel] = useState("");
   const [models, setModels] = useState([]);
-  const [allModels, setAllModels] = useState([]); // State for models dataset
+  const [allModels, setAllModels] = useState([]);
   const [makes, setMakes] = useState([]);
-
-  // Define state variables and their setters
   const [fuelType, setFuelType] = useState("");
   const [engineSize, setEngineSize] = useState("");
-
-  // New state variables for year, mileage, and clean title
   const [year, setYear] = useState("");
   const [mileage, setMileage] = useState("");
-
   const [transmission, setTransmission] = useState("");
   const [extCol, setExtCol] = useState("");
   const [intCol, setIntCol] = useState("");
-
   const [seatNumbers, setSeatNumbers] = useState("");
   const [carOrigins, setCarOrigins] = useState("");
   const [carDrivetrains, setCarDrivetrains] = useState("");
   const [carExtensions, setCarExtensions] = useState("");
+  const [predictedPrice, setPredictedPrice] = useState(null);
 
-  // Load models when the market changes
   useEffect(() => {
     if (market === "USA") {
       setAllModels(carModelsUSA);
     } else if (market === "KSA") {
       setAllModels(carModelsKSA);
-      fetchExpectedPrice(carDetails)
-        .then((price) => console.log("Expected Price:", price))
-        .catch((error) => console.error("Error:", error));
     } else {
       setAllModels([]);
     }
-    // Reset related states when the market changes
     setSelectedMake("");
     setSelectedModel("");
     setModels([]);
     setMakes([]);
   }, [market]);
 
-  // Update makes when allModels changes
   useEffect(() => {
     if (allModels) {
       const makesFromJson = Object.keys(allModels);
@@ -86,32 +55,55 @@ const Estimation = () => {
     const make = e.target.value;
     setSelectedMake(make);
     setModels(allModels[make] || []);
-    setSelectedModel(""); // Reset model when make changes
+    setSelectedModel("");
   };
 
   const handleModelChange = (e) => {
     setSelectedModel(e.target.value);
   };
 
-  const handleGenerateReport = () => {
-    setIsLoading(true);
+  const handleGenerateReport = async () => {
+    console.log("handleGenerateReport called");
+    // setIsLoading(true);
+    setShowVisualization(true);
+    setShowAnalysisCard(false);
+    const carDetails = {
+      Car_Brands: selectedMake, // str
+      Car_Models: selectedModel, // str
+      Car_Years: parseInt(year), // int
+      Car_Kilometers: parseInt(mileage), // int
+      Car_Fuel_Types: fuelType, // str
+      Car_Gear_Types: transmission, // str
+      Car_Engine_Sizes: parseFloat(engineSize), // float
+      Car_Drivetrains: carDrivetrains, // str
+      Car_Extensions: carExtensions, // str
+      Car_Exterior_Colors: extCol, // str
+      Car_Interior_Colors: intCol, // str
+      Car_Seat_Numbers: parseInt(seatNumbers), // int
+      Car_Origins: carOrigins, // str
+    };
 
-    // Simulating data processing
-    setTimeout(() => {
-      setShowVisualization(true);
-      setShowAnalysisCard(false);
+    try {
+      console.log("fetchExpectedPrice called");
+      const price = await fetchExpectedPrice(carDetails);
+      setPredictedPrice(price);
+    } catch (error) {
+      console.error("Error:", error);
+    } finally {
       setIsLoading(false);
-    }, 2000);
+    }
   };
 
   return (
     <Layout>
       <div className="flex flex-col p-3 bg-base-300">
         <h1
-          className="text-4xl p-7 font-semibold flex justify-center mt-14"
+          className="text-4xl p-7 font-semibold flex justify-center mt-8"
           style={{ fontFamily: "'El Messiri', sans-serif" }}
         >
-          {t("estimator.estimator_title")}
+          {showVisualization
+            ? t("visualization.prediction_result")
+            : t("estimator.estimator_title")}
         </h1>
 
         {showAnalysisCard && (
@@ -215,7 +207,7 @@ const Estimation = () => {
                     </div>
                   )}
 
-                  {/* Additional Fields: Year, Mileage, Clean Title */}
+                  {/* Additional Fields: Year, Mileage, Fuel Type */}
                   {selectedModel && (
                     <>
                       {/* Year Input */}
@@ -286,8 +278,8 @@ const Estimation = () => {
                           <option value="" disabled hidden>
                             {t("estimator.select_fuel_type")}
                           </option>
-                          <option value="Petrol">
-                            {t("estimator.petrol")}
+                          <option value="Gasoline">
+                            {t("estimator.gasoline")}
                           </option>
                           <option value="Diesel">
                             {t("estimator.diesel")}
@@ -335,11 +327,13 @@ const Estimation = () => {
                         </h3>
                         <input
                           type="number"
+                          step="0.1" // Allows input of decimals
                           className="input input-neutral input-bordered w-full max-w-xs"
                           value={engineSize}
-                          onChange={(e) => setEngineSize(e.target.value)}
+                          onChange={(e) =>
+                            setEngineSize(parseFloat(e.target.value))
+                          } // Parses the input as a float
                           placeholder={t("estimator.enter_engine_size")}
-                          min="0"
                           required
                           style={{ fontFamily: "'El Messiri', sans-serif" }}
                         />
@@ -459,21 +453,23 @@ const Estimation = () => {
                           style={{ fontFamily: "'El Messiri', sans-serif" }}
                         />
                       </div>
+
+                      {/* Estimate Button */}
+                      <button
+                        type="submit"
+                        className="btn btn-neutral w-full max-w-xs text-xl mt-12"
+                        disabled={isLoading}
+                        style={{ fontFamily: "'El Messiri', sans-serif" }}
+                        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} // Scroll to top when clicked
+                      >
+                        {isLoading ? (
+                          <span className="loading loading-spinner loading-md"></span>
+                        ) : (
+                          t("estimator.estimate")
+                        )}
+                      </button>
                     </>
                   )}
-
-                  <button
-                    type="submit"
-                    className="btn btn-neutral w-full max-w-xs text-xl mt-12"
-                    disabled={isLoading}
-                    style={{ fontFamily: "'El Messiri', sans-serif" }}
-                  >
-                    {isLoading ? (
-                      <span className="loading loading-spinner loading-md"></span>
-                    ) : (
-                      t("estimator.estimate")
-                    )}
-                  </button>
                 </div>
               </form>
             </div>
@@ -481,10 +477,7 @@ const Estimation = () => {
         )}
 
         {showVisualization && (
-          <VisualizationSection
-            userID={userID}
-            // Pass additional data as needed
-          />
+          <VisualizationSection predictedPrice={predictedPrice} />
         )}
       </div>
     </Layout>
