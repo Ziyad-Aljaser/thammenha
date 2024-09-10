@@ -65,7 +65,15 @@
     "vehicle_age": "Vehicle Age",
     "mileage_per_year": "Mileage per Year",
     "horsepower": "Horsepower",
-    "is_luxury_brand": "Is Luxury Brand"
+    "is_luxury_brand": "Is Luxury Brand",
+    "car_seat_numbers": "Car Seat Numbers",
+    "enter_car_seat_numbers": "Enter Car Seat Numbers",
+    "car_origins": "Car Origins",
+    "enter_car_origins": "Enter Car Origins",
+    "car_drivetrains": "Car Drivetrains",
+    "enter_car_drivetrains": "Enter Car Drivetrains",
+    "car_extensions": "Car Extensions",
+    "enter_car_extensions": "Enter Car Extensions"
   },
   "reports": {
     "coming_soon": "Coming Soon ..."

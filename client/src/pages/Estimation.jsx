@@ -24,22 +24,19 @@ const Estimation = () => {
   // Define state variables and their setters
   const [fuelType, setFuelType] = useState("");
   const [engineSize, setEngineSize] = useState("");
-  const [powerToWeightRatio, setPowerToWeightRatio] = useState("");
-  const [accidentImpact, setAccidentImpact] = useState("");
 
   // New state variables for year, mileage, and clean title
   const [year, setYear] = useState("");
   const [mileage, setMileage] = useState("");
-  const [cleanTitle, setCleanTitle] = useState("");
 
   const [transmission, setTransmission] = useState("");
   const [extCol, setExtCol] = useState("");
   const [intCol, setIntCol] = useState("");
-  const [accident, setAccident] = useState("");
-  const [vehicleAge, setVehicleAge] = useState("");
-  const [mileagePerYear, setMileagePerYear] = useState("");
-  const [horsepower, setHorsepower] = useState("");
-  const [isLuxuryBrand, setIsLuxuryBrand] = useState("");
+
+  const [seatNumbers, setSeatNumbers] = useState("");
+  const [carOrigins, setCarOrigins] = useState("");
+  const [carDrivetrains, setCarDrivetrains] = useState("");
+  const [carExtensions, setCarExtensions] = useState("");
 
   // Load models when the market changes
   useEffect(() => {
@@ -251,28 +248,6 @@ const Estimation = () => {
                         />
                       </div>
 
-                      {/* Clean Title Dropdown */}
-                      <div className="w-full max-w-xs mt-4 pb-6">
-                        <h3
-                          className="text-2xl font-semibold mb-4"
-                          style={{ fontFamily: "'El Messiri', sans-serif" }}
-                        >
-                          {t("estimator.clean_title")}
-                        </h3>
-                        <select
-                          className="select select-neutral w-full max-w-xs"
-                          value={cleanTitle}
-                          onChange={(e) => setCleanTitle(e.target.value)}
-                          required
-                          style={{ fontFamily: "'El Messiri', sans-serif" }}
-                        >
-                          <option value="" disabled hidden>
-                            {t("estimator.select_option")}
-                          </option>
-                          <option value="Yes">{t("estimator.yes")}</option>
-                          <option value="No">{t("estimator.no")}</option>
-                        </select>
-                      </div>
                       {/* Fuel Type Input */}
                       <div className="w-full max-w-xs mt-4">
                         <h3
@@ -300,73 +275,9 @@ const Estimation = () => {
                           <option value="Electric">
                             {t("estimator.electric")}
                           </option>
-                          {/* Add other fuel types as necessary */}
                         </select>
                       </div>
 
-                      {/* Engine Size Input */}
-                      <div className="w-full max-w-xs mt-4">
-                        <h3
-                          className="text-2xl font-semibold mb-4"
-                          style={{ fontFamily: "'El Messiri', sans-serif" }}
-                        >
-                          {t("estimator.engine_size")}
-                        </h3>
-                        <input
-                          type="number"
-                          className="input input-neutral input-bordered w-full max-w-xs"
-                          value={engineSize}
-                          onChange={(e) => setEngineSize(e.target.value)}
-                          placeholder={t("estimator.enter_engine_size")}
-                          min="0"
-                          required
-                          style={{ fontFamily: "'El Messiri', sans-serif" }}
-                        />
-                      </div>
-
-                      {/* Power to Weight Ratio Input */}
-                      <div className="w-full max-w-xs mt-4">
-                        <h3
-                          className="text-2xl font-semibold mb-4"
-                          style={{ fontFamily: "'El Messiri', sans-serif" }}
-                        >
-                          {t("estimator.power_to_weight_ratio")}
-                        </h3>
-                        <input
-                          type="number"
-                          className="input input-neutral input-bordered w-full max-w-xs"
-                          value={powerToWeightRatio}
-                          onChange={(e) =>
-                            setPowerToWeightRatio(e.target.value)
-                          }
-                          placeholder={t(
-                            "estimator.enter_power_to_weight_ratio"
-                          )}
-                          min="0"
-                          required
-                          style={{ fontFamily: "'El Messiri', sans-serif" }}
-                        />
-                      </div>
-
-                      {/* Accident Impact Input */}
-                      <div className="w-full max-w-xs mt-4">
-                        <h3
-                          className="text-2xl font-semibold mb-4"
-                          style={{ fontFamily: "'El Messiri', sans-serif" }}
-                        >
-                          {t("estimator.accident_impact")}
-                        </h3>
-                        <input
-                          type="number"
-                          className="input input-neutral input-bordered w-full max-w-xs"
-                          value={accidentImpact}
-                          onChange={(e) => setAccidentImpact(e.target.value)}
-                          placeholder={t("estimator.enter_accident_impact")}
-                          min="0"
-                          required
-                          style={{ fontFamily: "'El Messiri', sans-serif" }}
-                        />
-                      </div>
                       {/* Transmission Input */}
                       <div className="w-full max-w-xs mt-4">
                         <h3
@@ -392,6 +303,64 @@ const Estimation = () => {
                             {t("estimator.manual")}
                           </option>
                         </select>
+                      </div>
+
+                      {/* Engine Size Input */}
+                      <div className="w-full max-w-xs mt-4">
+                        <h3
+                          className="text-2xl font-semibold mb-4"
+                          style={{ fontFamily: "'El Messiri', sans-serif" }}
+                        >
+                          {t("estimator.engine_size")}
+                        </h3>
+                        <input
+                          type="number"
+                          className="input input-neutral input-bordered w-full max-w-xs"
+                          value={engineSize}
+                          onChange={(e) => setEngineSize(e.target.value)}
+                          placeholder={t("estimator.enter_engine_size")}
+                          min="0"
+                          required
+                          style={{ fontFamily: "'El Messiri', sans-serif" }}
+                        />
+                      </div>
+
+                      {/* Car Drivetrains Input */}
+                      <div className="w-full max-w-xs mt-4">
+                        <h3
+                          className="text-2xl font-semibold mb-4"
+                          style={{ fontFamily: "'El Messiri', sans-serif" }}
+                        >
+                          {t("estimator.car_drivetrains")}
+                        </h3>
+                        <input
+                          type="text"
+                          className="input input-neutral input-bordered w-full max-w-xs"
+                          value={carDrivetrains}
+                          onChange={(e) => setCarDrivetrains(e.target.value)}
+                          placeholder={t("estimator.enter_car_drivetrains")}
+                          required
+                          style={{ fontFamily: "'El Messiri', sans-serif" }}
+                        />
+                      </div>
+
+                      {/* Car Extensions Input */}
+                      <div className="w-full max-w-xs mt-4">
+                        <h3
+                          className="text-2xl font-semibold mb-4"
+                          style={{ fontFamily: "'El Messiri', sans-serif" }}
+                        >
+                          {t("estimator.car_extensions")}
+                        </h3>
+                        <input
+                          type="text"
+                          className="input input-neutral input-bordered w-full max-w-xs"
+                          value={carExtensions}
+                          onChange={(e) => setCarExtensions(e.target.value)}
+                          placeholder={t("estimator.enter_car_extensions")}
+                          required
+                          style={{ fontFamily: "'El Messiri', sans-serif" }}
+                        />
                       </div>
 
                       {/* Exterior Color Input */}
@@ -432,110 +401,43 @@ const Estimation = () => {
                         />
                       </div>
 
-                      {/* Accident Input */}
+                      {/* Car Seat Numbers Input */}
                       <div className="w-full max-w-xs mt-4">
                         <h3
                           className="text-2xl font-semibold mb-4"
                           style={{ fontFamily: "'El Messiri', sans-serif" }}
                         >
-                          {t("estimator.accident")}
-                        </h3>
-                        <select
-                          className="select select-neutral w-full max-w-xs"
-                          value={accident}
-                          onChange={(e) => setAccident(e.target.value)}
-                          required
-                          style={{ fontFamily: "'El Messiri', sans-serif" }}
-                        >
-                          <option value="" disabled hidden>
-                            {t("estimator.select_option")}
-                          </option>
-                          <option value="Yes">{t("estimator.yes")}</option>
-                          <option value="No">{t("estimator.no")}</option>
-                        </select>
-                      </div>
-
-                      {/* Vehicle Age Input */}
-                      <div className="w-full max-w-xs mt-4">
-                        <h3
-                          className="text-2xl font-semibold mb-4"
-                          style={{ fontFamily: "'El Messiri', sans-serif" }}
-                        >
-                          {t("estimator.vehicle_age")}
+                          {t("estimator.car_seat_numbers")}
                         </h3>
                         <input
                           type="number"
                           className="input input-neutral input-bordered w-full max-w-xs"
-                          value={vehicleAge}
-                          onChange={(e) => setVehicleAge(e.target.value)}
-                          placeholder={t("estimator.vehicle_age")}
-                          min="0"
+                          value={seatNumbers}
+                          onChange={(e) => setSeatNumbers(e.target.value)}
+                          placeholder={t("estimator.enter_car_seat_numbers")}
+                          min="1"
                           required
                           style={{ fontFamily: "'El Messiri', sans-serif" }}
                         />
                       </div>
 
-                      {/* Mileage per Year Input */}
+                      {/* Car Origins Input */}
                       <div className="w-full max-w-xs mt-4">
                         <h3
                           className="text-2xl font-semibold mb-4"
                           style={{ fontFamily: "'El Messiri', sans-serif" }}
                         >
-                          {t("estimator.mileage_per_year")}
+                          {t("estimator.car_origins")}
                         </h3>
                         <input
-                          type="number"
+                          type="text"
                           className="input input-neutral input-bordered w-full max-w-xs"
-                          value={mileagePerYear}
-                          onChange={(e) => setMileagePerYear(e.target.value)}
-                          placeholder={t("estimator.mileage_per_year")}
-                          min="0"
+                          value={carOrigins}
+                          onChange={(e) => setCarOrigins(e.target.value)}
+                          placeholder={t("estimator.enter_car_origins")}
                           required
                           style={{ fontFamily: "'El Messiri', sans-serif" }}
                         />
-                      </div>
-
-                      {/* Horsepower Input */}
-                      <div className="w-full max-w-xs mt-4">
-                        <h3
-                          className="text-2xl font-semibold mb-4"
-                          style={{ fontFamily: "'El Messiri', sans-serif" }}
-                        >
-                          {t("estimator.horsepower")}
-                        </h3>
-                        <input
-                          type="number"
-                          className="input input-neutral input-bordered w-full max-w-xs"
-                          value={horsepower}
-                          onChange={(e) => setHorsepower(e.target.value)}
-                          placeholder={t("estimator.horsepower")}
-                          min="0"
-                          required
-                          style={{ fontFamily: "'El Messiri', sans-serif" }}
-                        />
-                      </div>
-
-                      {/* Is Luxury Brand Input */}
-                      <div className="w-full max-w-xs mt-4">
-                        <h3
-                          className="text-2xl font-semibold mb-4"
-                          style={{ fontFamily: "'El Messiri', sans-serif" }}
-                        >
-                          {t("estimator.is_luxury_brand")}
-                        </h3>
-                        <select
-                          className="select select-neutral w-full max-w-xs"
-                          value={isLuxuryBrand}
-                          onChange={(e) => setIsLuxuryBrand(e.target.value)}
-                          required
-                          style={{ fontFamily: "'El Messiri', sans-serif" }}
-                        >
-                          <option value="" disabled hidden>
-                            {t("estimator.select_option")}
-                          </option>
-                          <option value="Yes">{t("estimator.yes")}</option>
-                          <option value="No">{t("estimator.no")}</option>
-                        </select>
                       </div>
                     </>
                   )}

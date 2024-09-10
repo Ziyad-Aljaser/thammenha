@@ -65,7 +65,15 @@
     "vehicle_age": "عمر المركبة",
     "mileage_per_year": "المسافة المقطوعة سنوياً",
     "horsepower": "قوة الحصان",
-    "is_luxury_brand": "ماركة فاخرة"
+    "is_luxury_brand": "ماركة فاخرة",
+    "car_seat_numbers": "عدد مقاعد السيارة",
+    "enter_car_seat_numbers": "أدخل عدد المقاعد",
+    "car_origins": "أصل السيارة",
+    "enter_car_origins": "أدخل أصل السيارة",
+    "car_drivetrains": "نظام الدفع",
+    "enter_car_drivetrains": "أدخل نظام الدفع",
+    "car_extensions": "ملحقات السيارة",
+    "enter_car_extensions": "أدخل ملحقات السيارة"
   },
 
   "reports": {
@@ -115,10 +123,10 @@
     "sponsor_description": "الأولى من نوعها في تقديم المعسكرات والبرامج التعليمية في مجالات التقنيات المتقدمة",
     "back_button": "العودة إلى الصفحة الرئيسية"
   },
-    "footer": {
-      "about_us": "معلومات عنا",
-      "contact": "اتصل بنا",
-      "github_link": "عرض على GitHub",
-      "copyright": "حقوق الطبع والنشر © 2024 - جميع الحقوق محفوظة لثمنها"
-    }  
+  "footer": {
+    "about_us": "معلومات عنا",
+    "contact": "اتصل بنا",
+    "github_link": "عرض على GitHub",
+    "copyright": "حقوق الطبع والنشر © 2024 - جميع الحقوق محفوظة لثمنها"
+  }
 }
