@@ -176,7 +176,7 @@ const AboutUs = forwardRef((props, ref) => {
         style={{ fontFamily: "'El Messiri', sans-serif" }}
       >
         {/* Tuwaiq Sponsor Section */}
-        <h2 className="text-3xl font-bold text-center mb-8">
+        <h2 className="text-3xl font-bold text-center">
           {t("about_us.sponsor_title")}
         </h2>
         <motion.div
