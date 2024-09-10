@@ -113,5 +113,12 @@
     "sponsor_name": "Tuwaiq Academy",
     "sponsor_description": "Education Administration Programs",
     "back_button": "Back Home"
+  },
+
+  "footer": {
+    "about_us": "About us",
+    "contact": "Contact",
+    "github_link": "View on GitHub",
+    "copyright": "Copyright © 2024 - All rights reserved by Thammenha"
   }
 }

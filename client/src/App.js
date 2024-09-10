@@ -9,7 +9,6 @@ import AboutUs from "./pages/AboutUs";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import ContactUs from "./pages/ContactUs";
-import ReportDetail from "./pages/ReportDetail";
 
 // import { PrivateWrapper } from "./components/PrivateWrapper"; // Adjust the import if the name is different
 import { AuthProvider } from "./contexts/AuthContext";
@@ -35,7 +34,6 @@ function App() {
                 <Reports />
             }
           />
-          <Route path="/reports/:reportId" element={<ReportDetail />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
