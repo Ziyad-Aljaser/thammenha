@@ -38,10 +38,23 @@ const Estimation = () => {
     } else {
       setAllModels([]);
     }
+    // Clear all input fields when the market changes
     setSelectedMake("");
     setSelectedModel("");
     setModels([]);
     setMakes([]);
+    setFuelType("");
+    setEngineSize("");
+    setYear("");
+    setMileage("");
+    setTransmission("");
+    setExtCol("");
+    setIntCol("");
+    setSeatNumbers("");
+    setCarOrigins("");
+    setCarDrivetrains("");
+    setCarExtensions("");
+    setPredictedPrice(null);
   }, [market]);
 
   useEffect(() => {
@@ -62,8 +75,8 @@ const Estimation = () => {
     setSelectedModel(e.target.value);
   };
 
-  const handleGenerateReport = async () => {
-    console.log("handleGenerateReport called");
+  const handleKSAGenerateReport = async () => {
+    console.log("handleKSAGenerateReport called");
     // setIsLoading(true);
     setShowVisualization(true);
     setShowAnalysisCard(false);
@@ -94,6 +107,30 @@ const Estimation = () => {
     }
   };
 
+  const handleUSAGenerateReport = async () => {
+    console.log("handleUSAGenerateReport called");
+    setShowVisualization(true);
+    setShowAnalysisCard(false);
+
+    const carDetails = {
+      Car_Brands: selectedMake,
+      Car_Models: selectedModel,
+      Car_Years: parseInt(year),
+      Car_Kilometers: parseInt(mileage),
+      // Add more USA-specific details if needed
+    };
+
+    try {
+      console.log("fetchExpectedPrice called for USA");
+      const price = await fetchExpectedPrice(carDetails);
+      setPredictedPrice(price);
+    } catch (error) {
+      console.error("Error:", error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <Layout>
       <div className="flex flex-col p-3 bg-base-300">
@@ -112,14 +149,18 @@ const Estimation = () => {
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
-                  handleGenerateReport();
+                  if (market === "KSA") {
+                    handleKSAGenerateReport();
+                  } else if (market === "USA") {
+                    handleUSAGenerateReport();
+                  }
                 }}
               >
                 <div
                   className="card-body items-center"
                   style={{ fontFamily: "'El Messiri', sans-serif" }}
                 >
-                  {/* Market Selection */}
+                  {/* Market Selection*/}
                   <div className="w-full max-w-xs mt-4 mb-6">
                     <h3
                       className="text-2xl font-semibold mb-4 text-center"
@@ -207,8 +248,8 @@ const Estimation = () => {
                     </div>
                   )}
 
-                  {/* Additional Fields: Year, Mileage, Fuel Type */}
-                  {selectedModel && (
+                  {/* KSA Market */}
+                  {market === "KSA" && selectedModel && (
                     <>
                       {/* Year Input */}
                       <div className="w-full max-w-xs mt-4">
@@ -330,9 +371,7 @@ const Estimation = () => {
                           step="0.1" // Allows input of decimals
                           className="input input-neutral input-bordered w-full max-w-xs"
                           value={engineSize}
-                          onChange={(e) =>
-                            setEngineSize(parseFloat(e.target.value))
-                          } // Parses the input as a float
+                          onChange={(e) => setEngineSize(e.target.value)} // Parses the input as a float
                           placeholder={t("estimator.enter_engine_size")}
                           required
                           style={{ fontFamily: "'El Messiri', sans-serif" }}
@@ -345,11 +384,11 @@ const Estimation = () => {
                           className="text-2xl font-semibold mb-4"
                           style={{ fontFamily: "'El Messiri', sans-serif" }}
                         >
-                          {t("estimator.transmission")}
+                          {t("estimator.car_drivetrains")}
                         </h3>
                         <select
                           className="select select-neutral w-full max-w-xs"
-                          value={transmission}
+                          value={carDrivetrains}
                           onChange={(e) => setCarDrivetrains(e.target.value)}
                           required
                           style={{ fontFamily: "'El Messiri', sans-serif" }}
@@ -484,6 +523,75 @@ const Estimation = () => {
                       </button>
                     </>
                   )}
+
+                  {/* USA Market */}
+                  {market === "USA" && selectedModel && (
+                    <>
+                      {/* Year Input */}
+                      <div className="w-full max-w-xs mt-4">
+                        <h3
+                          className="text-2xl font-semibold mb-4"
+                          style={{ fontFamily: "'El Messiri', sans-serif" }}
+                        >
+                          {t("estimator.year")}
+                        </h3>
+                        <select
+                          className="select select-neutral select-bordered w-full max-w-xs"
+                          value={year}
+                          onChange={(e) => setYear(e.target.value)}
+                          required
+                          style={{ fontFamily: "'El Messiri', sans-serif" }}
+                        >
+                          <option value="" disabled>
+                            {t("estimator.select_year")}
+                          </option>
+                          {Array.from(
+                            { length: 2024 - 2000 + 1 },
+                            (_, i) => 2000 + i
+                          ).map((year) => (
+                            <option key={year} value={year}>
+                              {year}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+
+                      {/* Mileage Input */}
+                      <div className="w-full max-w-xs mt-4">
+                        <h3
+                          className="text-2xl font-semibold mb-4"
+                          style={{ fontFamily: "'El Messiri', sans-serif" }}
+                        >
+                          {t("estimator.mileage")}
+                        </h3>
+                        <input
+                          type="number"
+                          className="input input-neutral input-bordered w-full max-w-xs"
+                          value={mileage}
+                          onChange={(e) => setMileage(e.target.value)}
+                          placeholder={t("estimator.enter_mileage")}
+                          required
+                          style={{ fontFamily: "'El Messiri', sans-serif" }}
+                        />
+                      </div>
+                      {/* Estimate Button */}
+                      <button
+                        type="submit"
+                        className="btn btn-neutral w-full max-w-xs text-xl mt-12"
+                        disabled={isLoading}
+                        style={{ fontFamily: "'El Messiri', sans-serif" }}
+                        onClick={() =>
+                          window.scrollTo({ top: 0, behavior: "smooth" })
+                        } // Scroll to top when clicked
+                      >
+                        {isLoading ? (
+                          <span className="loading loading-spinner loading-md"></span>
+                        ) : (
+                          t("estimator.estimate")
+                        )}
+                      </button>
+                    </>
+                  )}
                 </div>
               </form>
             </div>
@@ -491,7 +599,10 @@ const Estimation = () => {
         )}
 
         {showVisualization && (
-          <VisualizationSection predictedPrice={predictedPrice} />
+          <VisualizationSection
+            predictedPrice={predictedPrice}
+            currency={market === "USA" ? "USD" : "KSA"}
+          />
         )}
       </div>
     </Layout>
