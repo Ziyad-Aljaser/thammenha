@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Layout from "../components/Layout/Layout";
 import VisualizationSection from "../components/Analysis/VisualizationSection";
 import carModelsUSA from "../data/car_models.json";
-import carModelsKSA from "../data/carModels.json";
+import carModelsKSA from "../data/KSA_car_models.json";
 import { useTranslation } from "react-i18next";
 import { fetchExpectedPrice } from "../utils/PythonAPI";
 

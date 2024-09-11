@@ -1,0 +1,332 @@
+{
+  "Audi": [
+    "Q8",
+    "Q3"
+  ],
+  "BAIC": [
+    "X35",
+    "BJ40L",
+    "X7",
+    "D50"
+  ],
+  "BMW": [
+    "5 Series",
+    "2 Series",
+    "X Series",
+    "4 Series",
+    "3 Series",
+    "7 Series",
+    "8 Series"
+  ],
+  "Cadillac": [
+    "XT5",
+    "Escalade"
+  ],
+  "Changan": [
+    "Hunter",
+    "CS35 Plus",
+    "UNI V",
+    "CS95",
+    "CS85",
+    "CS 75",
+    "Alsvin",
+    "CS75 Plus",
+    "UNI T",
+    "UNI K",
+    "Eado Plus"
+  ],
+  "Chery": [
+    "Tiggo 8 Pro",
+    "Tiggo 4 Pro",
+    "Arrizo 6 Pro",
+    "Arrizo 5",
+    "Tiggo 7 Pro",
+    "Tiggo 2 Pro",
+    "Arrizo 6"
+  ],
+  "Chevrolet": [
+    "Malibu",
+    "Tahoe",
+    "Traverse",
+    "Equinox",
+    "Blazer",
+    "Impala",
+    "Groove",
+    "Silverado",
+    "Spark",
+    "Captiva",
+    "Suburban"
+  ],
+  "Chrysler": [
+    "C300",
+    "300"
+  ],
+  "Dodge": [
+    "Ram",
+    "Durango",
+    "Charger",
+    "Challenger"
+  ],
+  "Dongfeng": [
+    "AX7"
+  ],
+  "Exceed": [
+    "TXL"
+  ],
+  "FAW": [
+    "Bestune T33",
+    "Bestune T99"
+  ],
+  "Fiat": [
+    "500"
+  ],
+  "Ford": [
+    "Taurus",
+    "Mustang",
+    "F350",
+    "Fusion",
+    "Expedition",
+    "Explorer",
+    "Territory",
+    "Figo",
+    "Escort",
+    "F150",
+    "F250",
+    "Edge",
+    "Ranger"
+  ],
+  "GAC": [
+    "GS3",
+    "\u0625\u064a\u0645\u0643\u0648",
+    "Empow",
+    "GS5"
+  ],
+  "GMC": [
+    "Acadia",
+    "Yukon",
+    "Terrain",
+    "Sierra"
+  ],
+  "Geely": [
+    "Mongaro",
+    "Coolray",
+    "Okavango",
+    "Azkarra",
+    "Emgrand",
+    "TUGELLA"
+  ],
+  "Genesis": [
+    "GV80",
+    "G90",
+    "G80"
+  ],
+  "Great Wall": [
+    "Tank 300",
+    "Tank 500",
+    "Poer",
+    "Wingl"
+  ],
+  "Haval": [
+    "H6",
+    "H2",
+    "Jolion",
+    "H9",
+    "Dargo"
+  ],
+  "Honda": [
+    "Accord",
+    "ZR-V",
+    "Pilot",
+    "CRV"
+  ],
+  "Hongqi": [
+    "H5",
+    "HS3"
+  ],
+  "Hyundai": [
+    "Creta",
+    "Tucson",
+    "H1",
+    "Santafe",
+    "Azera",
+    "Grand Starex",
+    "Grand i10",
+    "Palisade",
+    "Kona",
+    "Accent",
+    "Sonata",
+    "Staria",
+    "Elantra"
+  ],
+  "Infiniti": [
+    "QX 80"
+  ],
+  "Isuzu": [
+    "D-max",
+    "MU"
+  ],
+  "Jeep": [
+    "Wrangler",
+    "Grand Cherokee",
+    "Gladiator",
+    "Compass"
+  ],
+  "Jetour": [
+    "X90",
+    "X70S",
+    "X70 Plus",
+    "X70"
+  ],
+  "Kia": [
+    "Optima",
+    "Cadenza",
+    "K8",
+    "Carnival",
+    "SONET",
+    "K5",
+    "Cerato",
+    "Pegas",
+    "Rio",
+    "Telluride",
+    "Sportage",
+    "Seltos",
+    "Sorento"
+  ],
+  "Lexus": [
+    "UX",
+    "GS",
+    "LX",
+    "LS",
+    "RC",
+    "RX",
+    "GX",
+    "NX",
+    "ES"
+  ],
+  "Lincoln": [
+    "Aviator",
+    "Navigator",
+    "Corsair"
+  ],
+  "MG": [
+    "ZS",
+    "GT",
+    "RX5",
+    "One",
+    "RX8",
+    "HS",
+    "6",
+    "5"
+  ],
+  "Maxus": [
+    "T60",
+    "D60"
+  ],
+  "Mazda": [
+    "CX5",
+    "CX30",
+    "3 hatchback",
+    "CX9",
+    "6",
+    "CX3"
+  ],
+  "Mercedes": [
+    "GLB",
+    "C",
+    "GLE",
+    "GT",
+    "CLS",
+    "GLA",
+    "GLC",
+    "E",
+    "A",
+    "S Class",
+    "GLS",
+    "CLA"
+  ],
+  "Mini": [
+    "Cooper"
+  ],
+  "Mitsubishi": [
+    "Pajero",
+    "Eclipse",
+    "Outlander",
+    "Attrage",
+    "L200",
+    "New Outlander Series",
+    "XPANDER"
+  ],
+  "Nissan": [
+    "Xtrail",
+    "Sunny",
+    "Navara",
+    "Maxima",
+    "Patrol",
+    "EBRO (Fatque)",
+    "Sentra",
+    "Altima",
+    "Kicks",
+    "Pathfinder",
+    "Xterra"
+  ],
+  "Peugeot": [
+    "3008",
+    "Partner",
+    "2008"
+  ],
+  "Porsche": [
+    "Macan",
+    "Cayenne"
+  ],
+  "Range Rover": [
+    "Defender",
+    "Range Rover"
+  ],
+  "Renault": [
+    "Talisman",
+    "Duster",
+    "Megane",
+    "Koleos",
+    "Symbol",
+    "Docker"
+  ],
+  "Suzuki": [
+    "Ciaz",
+    "Grand Vitara",
+    "Ertiga",
+    "Vitara",
+    "Fronx",
+    "Jimny",
+    "Dzire"
+  ],
+  "Toyota": [
+    "Hilux",
+    "Crown",
+    "Prado",
+    "Urban Cruiser",
+    "Innova",
+    "Prius",
+    "Veloz",
+    "FJ Cruiser",
+    "Corolla Cross",
+    "C-HR",
+    "Supra",
+    "Haice",
+    "Rush",
+    "Avalon",
+    "Sequoia",
+    "Raize",
+    "Land Cruiser",
+    "Fortuner",
+    "Camry",
+    "RAV4",
+    "Highlander",
+    "Land Cruiser Pickup",
+    "Yaris",
+    "Corolla"
+  ],
+  "Volkswagen": [
+    "T Roc",
+    "Tiguan"
+    ]
+}

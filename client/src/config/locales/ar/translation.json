@@ -72,8 +72,8 @@
     "enter_car_origins": "أدخل أصل السيارة",
     "car_drivetrains": "نظام الدفع",
     "enter_car_drivetrains": "أدخل نظام الدفع",
-    "car_extensions": "ملحقات السيارة",
-    "enter_car_extensions": "أدخل ملحقات السيارة"
+    "car_extensions": "فئة السيارة",
+    "enter_car_extensions": "أدخل فئة السيارة"
   },
 
   "reports": {

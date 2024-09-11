@@ -44,6 +44,9 @@ const VisualizationSection = ({ predictedPrice }) => {
     return () => clearTimeout(timeout);
   }, []);
 
+  // Calculate the range price with a 15% increase
+  const priceWithIncrease = predictedPrice ? predictedPrice * 1.15 : 0;
+
   return (
     <div className="flex items-center justify-center bg-base-300 p-5">
       <div className="card w-1/2 glass shadow-xl p-6 mb-6 bg-base-200">
@@ -58,7 +61,7 @@ const VisualizationSection = ({ predictedPrice }) => {
             className={`text-6xl py-16 flex items-baseline ${
               showFinalPrice ? "final-price-animation" : ""
             }`}
-            style={{ fontFamily: "'El Messiri', sans-serif" }} // Set text color to red
+            style={{ fontFamily: "'El Messiri', sans-serif" }}
           >
             {animationRunning ? (
               <span dir="ltr" className="ml-2">
@@ -70,7 +73,7 @@ const VisualizationSection = ({ predictedPrice }) => {
                 className="ml-2"
                 style={{ color: "red" }} // Set text color to red
               >
-                {Math.round(predictedPrice).toLocaleString()} SAR
+                {Math.round(predictedPrice).toLocaleString()} - {Math.round(priceWithIncrease).toLocaleString()} SAR
               </span>
             )}
           </div>
