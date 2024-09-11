@@ -350,7 +350,7 @@ const Estimation = () => {
                         <select
                           className="select select-neutral w-full max-w-xs"
                           value={transmission}
-                          onChange={(e) => setTransmission(e.target.value)}
+                          onChange={(e) => setCarDrivetrains(e.target.value)}
                           required
                           style={{ fontFamily: "'El Messiri', sans-serif" }}
                         >
