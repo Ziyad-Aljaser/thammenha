@@ -308,11 +308,12 @@ const Estimation = () => {
                           <option value="" disabled hidden>
                             {t("estimator.select_option")}
                           </option>
-                          <option value="RWD">RWD</option>
-                          <option value="Double (4x4)">Double (4x4)</option>
-                          <option value="FWD">FWD</option>
-                          <option value="AWD">AWD</option>
-                          <option value="4WD">4WD</option>
+                          <option value="Automatic">
+                            {t("estimator.automatic")}
+                          </option>
+                          <option value="Manual">
+                            {t("estimator.manual")}
+                          </option>
                         </select>
                       </div>
 
@@ -344,17 +345,24 @@ const Estimation = () => {
                           className="text-2xl font-semibold mb-4"
                           style={{ fontFamily: "'El Messiri', sans-serif" }}
                         >
-                          {t("estimator.car_drivetrains")}
+                          {t("estimator.transmission")}
                         </h3>
-                        <input
-                          type="text"
-                          className="input input-neutral input-bordered w-full max-w-xs"
-                          value={carDrivetrains}
-                          onChange={(e) => setCarDrivetrains(e.target.value)}
-                          placeholder={t("estimator.enter_car_drivetrains")}
+                        <select
+                          className="select select-neutral w-full max-w-xs"
+                          value={transmission}
+                          onChange={(e) => setTransmission(e.target.value)}
                           required
                           style={{ fontFamily: "'El Messiri', sans-serif" }}
-                        />
+                        >
+                          <option value="" disabled hidden>
+                            {t("estimator.select_option")}
+                          </option>
+                          <option value="RWD">RWD</option>
+                          <option value="Double (4x4)">Double (4x4)</option>
+                          <option value="FWD">FWD</option>
+                          <option value="AWD">AWD</option>
+                          <option value="4WD">4WD</option>
+                        </select>
                       </div>
 
                       {/* Car Extensions Input */}
