@@ -53,7 +53,7 @@ const teamMembers = [
   {
     image: FaisalImg,
     nameKey: "about_us.team_members.faisal_name",
-    majorKey: "about_us.team_members.data_scientist",
+    majorKey: "about_us.team_members.computer_scientist",
     linkedin: "https://www.linkedin.com/in/faisalmcs/",
     website: "https://tuwaiq.edu.sa/", // Tuwaiq's website
   },
