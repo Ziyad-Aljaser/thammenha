@@ -57,19 +57,22 @@ const VisualizationSection = ({ predictedPrice, currency }) => {
 
   return (
     <div className="flex items-center justify-center bg-base-300 p-5">
-      <div className="card w-full max-w-md glass shadow-xl p-4 sm:p-6 mb-6 bg-base-200">
+      <div className="card w-full max-w-lg sm:max-w-xl lg:max-w-2xl glass shadow-xl p-4 sm:p-6 mb-6 bg-base-200">
         <div className="card-body items-center text-center">
           <p
-            className="text-lg sm:text-2xl"
+            className="text-lg sm:text-4xl mb-4"
             style={{ fontFamily: "'El Messiri', sans-serif" }}
           >
             {t("visualization.estimated_price")}
           </p>
           <div
-            className={`text-4xl sm:text-6xl py-8 sm:py-16 flex items-baseline ${
-              showFinalPrice ? "final-price-animation" : ""
-            }`}
-            style={{ fontFamily: "'El Messiri', sans-serif" }}
+            className={`text-2xl sm:text-5xl py-4 sm:py-16 flex items-center justify-center`}
+            style={{
+              fontFamily: "'El Messiri', sans-serif",
+              whiteSpace: "normal", // Allow text to wrap normally
+              overflow: "visible", // Ensure all text is visible
+              textAlign: "center", // Center-align the text
+            }}
           >
             {animationRunning ? (
               <span dir="ltr" className="ml-2">
@@ -79,7 +82,7 @@ const VisualizationSection = ({ predictedPrice, currency }) => {
               <span
                 dir="ltr"
                 className="ml-2"
-                style={{ color: "red" }} // Set text color to red
+                style={{ color: "red", display: "inline-block" }}
               >
                 {Math.round(priceLowerLimit).toLocaleString()} -{" "}
                 {Math.round(priceUpperLimit).toLocaleString()} {currencySymbol}
@@ -88,7 +91,7 @@ const VisualizationSection = ({ predictedPrice, currency }) => {
           </div>
           <button
             type="button"
-            className="btn btn-neutral w-full max-w-xs text-base sm:text-xl mt-8"
+            className="btn btn-neutral w-full max-w-xs text-base sm:text-xl mt-4"
             onClick={() => navigate("/")} // Navigate back to home
             style={{ fontFamily: "'El Messiri', sans-serif" }}
           >
