@@ -22,15 +22,9 @@ const Home = () => {
         <div className="hero-content grid md:grid-cols-2 gap-8">
           {/* Text Block with Creative Animation */}
           <motion.div
-            initial={{ opacity: 0, x: -50, rotate: -10 }} // Start off with slight rotation and position
-            animate={{ opacity: 1, x: 0, rotate: 0 }} // Rotate to 0 degrees while fading in
-            transition={{
-              type: "spring",
-              stiffness: 100,
-              damping: 10,
-              mass: 0.5,
-              duration: 0.8,
-            }} // Add a bouncy effect
+            initial={{ opacity: 0, x: 50 }} // Slight slide in from the right with fade-in
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ type: "spring", stiffness: 50 }}
             className={`md:order-2 ${isArabic ? "text-right" : "text-left"}`} // Adjust text alignment
           >
             <h1
@@ -96,15 +90,9 @@ const Home = () => {
 
           {/* Image Block with Creative Animation */}
           <motion.div
-            initial={{ opacity: 0, x: 50, scale: 0.8, rotate: 10 }} // Start smaller and slightly rotated
-            animate={{ opacity: 1, x: 0, scale: 1, rotate: 0 }} // Grow to normal size with a slight bounce
-            transition={{
-              type: "spring",
-              stiffness: 120,
-              damping: 12,
-              mass: 0.5,
-              duration: 0.8,
-            }} // Add a bouncy and springy effect
+            initial={{ opacity: 0, x: 50 }} // Slight slide in from the right with fade-in
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ type: "spring", stiffness: 50 }} // Add a bouncy and springy effect
             className="order-1 hidden md:block ml-auto md:order-1"
           >
             <img src={heroImg} alt="Hero" className="max-w-full h-auto" />

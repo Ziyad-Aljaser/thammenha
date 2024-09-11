@@ -308,12 +308,11 @@ const Estimation = () => {
                           <option value="" disabled hidden>
                             {t("estimator.select_option")}
                           </option>
-                          <option value="Automatic">
-                            {t("estimator.automatic")}
-                          </option>
-                          <option value="Manual">
-                            {t("estimator.manual")}
-                          </option>
+                          <option value="RWD">RWD</option>
+                          <option value="Double (4x4)">Double (4x4)</option>
+                          <option value="FWD">FWD</option>
+                          <option value="AWD">AWD</option>
+                          <option value="4WD">4WD</option>
                         </select>
                       </div>
 
@@ -443,15 +442,20 @@ const Estimation = () => {
                         >
                           {t("estimator.car_origins")}
                         </h3>
-                        <input
-                          type="text"
-                          className="input input-neutral input-bordered w-full max-w-xs"
+                        <select
+                          className="select select-neutral w-full max-w-xs"
                           value={carOrigins}
                           onChange={(e) => setCarOrigins(e.target.value)}
-                          placeholder={t("estimator.enter_car_origins")}
                           required
                           style={{ fontFamily: "'El Messiri', sans-serif" }}
-                        />
+                        >
+                          <option value="" disabled hidden>
+                            {t("estimator.select_option")}
+                          </option>
+                          <option value="Saudi">Saudi</option>
+                          <option value="GCC">GCC</option>
+                          <option value="Other">Other</option>
+                        </select>
                       </div>
 
                       {/* Estimate Button */}
@@ -460,7 +464,9 @@ const Estimation = () => {
                         className="btn btn-neutral w-full max-w-xs text-xl mt-12"
                         disabled={isLoading}
                         style={{ fontFamily: "'El Messiri', sans-serif" }}
-                        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} // Scroll to top when clicked
+                        onClick={() =>
+                          window.scrollTo({ top: 0, behavior: "smooth" })
+                        } // Scroll to top when clicked
                       >
                         {isLoading ? (
                           <span className="loading loading-spinner loading-md"></span>

@@ -44,8 +44,9 @@ const VisualizationSection = ({ predictedPrice }) => {
     return () => clearTimeout(timeout);
   }, []);
 
-  // Calculate the range price with a 15% increase
-  const priceWithIncrease = predictedPrice ? predictedPrice * 1.15 : 0;
+  // Calculate the range prices with a 5% decrease and increase
+  const priceLowerLimit = predictedPrice * 0.95;
+  const priceUpperLimit = predictedPrice * 1.05;
 
   return (
     <div className="flex items-center justify-center bg-base-300 p-5">
@@ -73,7 +74,8 @@ const VisualizationSection = ({ predictedPrice }) => {
                 className="ml-2"
                 style={{ color: "red" }} // Set text color to red
               >
-                {Math.round(predictedPrice).toLocaleString()} - {Math.round(priceWithIncrease).toLocaleString()} SAR
+                {Math.round(priceLowerLimit).toLocaleString()} -{" "}
+                {Math.round(priceUpperLimit).toLocaleString()} SAR
               </span>
             )}
           </div>
