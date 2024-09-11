@@ -73,7 +73,8 @@
     "car_drivetrains": "نظام الدفع",
     "enter_car_drivetrains": "أدخل نظام الدفع",
     "car_extensions": "فئة السيارة",
-    "enter_car_extensions": "أدخل فئة السيارة"
+    "enter_car_extensions": "أدخل فئة السيارة",
+    "accidents_or_damage": "هل هناك أي حوادث أو أضرار؟"
   },
 
   "reports": {
@@ -134,5 +135,35 @@
     "estimated_price": "السعر المقدر هو:",
     "loading": "جار التحميل...",
     "go_home": "العودة إلى الصفحة الرئيسية"
+  },
+  "login_page": {
+    "is_loading": "جاري التحميل ...",
+    "login": "تسجيل الدخول",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "error": "خطأ! ",
+    "login_successful": "تم تسجيل الدخول بنجاح! مرحباً بعودتك!",
+    "no_account_yet": "ليس لديك حساب بعد؟",
+    "sign_up": "سجل الآن",
+    "welcome_message": "مرحباً بعودتك!",
+    "enter_email": "أدخل البريد الإلكتروني",
+    "enter_password": "أدخل كلمة المرور"
+  },
+  "signup_page": {
+    "is_loading": "جاري التحميل ...",
+    "create_account": "إنشاء حساب",
+    "full_name": "الاسم الكامل",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "confirm_password": "تأكيد كلمة المرور",
+    "error": "خطأ! ",
+    "signup_successful": "تم إنشاء الحساب بنجاح، مرحبًا!",
+    "passwords_do_not_match": "كلمات المرور غير متطابقة",
+    "already_have_account": "لديك حساب بالفعل؟",
+    "login": "تسجيل الدخول",
+    "enter_full_name": "أدخل اسمك الكامل",
+    "enter_email": "أدخل بريدك الإلكتروني",
+    "enter_password": "أدخل كلمة المرور",
+    "enter_confirm_password": "تأكيد كلمة المرور"
   }
 }

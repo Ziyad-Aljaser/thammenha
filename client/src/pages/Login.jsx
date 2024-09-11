@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Layout from "../components/Layout/Layout";
 import { useAuth } from "../hooks/useAuth";
+import { useTranslation } from 'react-i18next'; // Importing the translation hook
 
-export default function Login() {
+export default function LoginPage() {
+  const { t } = useTranslation(); // Initialize the translation hook
   const [isLoading, setIsLoading] = useState(false); // State to manage loading status
   const { login } = useAuth();
   const [state, setState] = useState({
@@ -13,7 +15,6 @@ export default function Login() {
 
   const [error, setError] = useState("");
   const [loginSuccess, setLoginSuccess] = useState(false);
-
   const navigate = useNavigate(); // Invoke useNavigate
 
   function handleForm(e) {
@@ -25,19 +26,16 @@ export default function Login() {
 
   async function handleLogin(e) {
     e.preventDefault();
-
     setIsLoading(true); // Indicate loading status
 
     try {
       await login(state.email, state.password);
       setError("");
-      console.log("Logged in successfully!");
+      console.log(t("login_page.login_successful"));
       setLoginSuccess(true);
 
-      // Here you could mimic the signup approach by introducing a delay before redirecting
-      // This could be useful if you have any post-login setup to complete
+      // Introduce a delay before redirecting for post-login actions
       setTimeout(() => {
-        // Adjust the path as needed or perform other post-login actions
         navigate("/"); // Example redirect after successful login
         setIsLoading(false); // Reset loading status after the delay
       }, 2000); // 2000 ms delay = 2 seconds
@@ -53,16 +51,16 @@ export default function Login() {
       <div className="flex items-center justify-center h-screen bg-base-300 p-5">
         <div className="card w-full max-w-md glass shadow-xl">
           <div className="card-body">
-            <h1 className="text-4xl font-bold text-center mb-6">Login</h1>
+            <h1 className="text-4xl font-bold text-center mb-6">{t("login_page.login")}</h1>
 
             {error ? (
               <div className="alert alert-error mb-4">
-                <span>Error! {error}</span>
+                <span>{t("login_page.error")}{error}</span>
               </div>
             ) : (
               loginSuccess && (
                 <div className="alert alert-success mb-4">
-                  <span>Login successful! Welcome Back!</span>
+                  <span>{t("login_page.login_successful")}</span>
                 </div>
               )
             )}
@@ -83,7 +81,7 @@ export default function Login() {
                 <input
                   type="text"
                   name="email"
-                  placeholder="Email"
+                  placeholder={t("login_page.enter_email")}
                   className="input input-bordered w-full pl-10 text-lg"
                   onChange={handleForm}
                   required
@@ -109,7 +107,7 @@ export default function Login() {
                 <input
                   type="password"
                   name="password"
-                  placeholder="Password"
+                  placeholder={t("login_page.enter_password")}
                   className="input input-bordered w-full pl-10 text-lg"
                   onChange={handleForm}
                   required
@@ -125,15 +123,15 @@ export default function Login() {
                   {isLoading ? (
                     <span className="loading loading-spinner loading-md"></span>
                   ) : (
-                    "Login"
+                    t("login_page.login")
                   )}
                 </button>
               </div>
 
               <p className="mt-4">
-                No account yet?{" "}
+                {t("login_page.no_account_yet")}{" "}
                 <Link to="/signup" className="link link-info">
-                  Sign up
+                  {t("login_page.sign_up")}
                 </Link>
               </p>
             </form>

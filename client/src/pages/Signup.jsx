@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
-
+import { useTranslation } from "react-i18next"; // Assuming you're using react-i18next
 import Layout from "../components/Layout/Layout";
 
 export default function Signup() {
+  const { t } = useTranslation(); // Initialize the translation hook
   const { signUp } = useAuth();
   const [state, setState] = useState({
     fullName: "",
@@ -15,9 +16,7 @@ export default function Signup() {
 
   const [error, setError] = useState("");
   const [signupSuccess, setSignupSuccess] = useState(false);
-
   const [isLoading, setIsLoading] = useState(false); // State to manage loading status
-
   const navigate = useNavigate(); // Invoke useNavigate
 
   function handleForm(e) {
@@ -33,8 +32,8 @@ export default function Signup() {
     setIsLoading(true); // Indicate loading status
 
     if (state.password !== state.passwordConfirm) {
-      console.error("Passwords do not match");
-      setError("Passwords do not match");
+      console.error(t("signup_page.passwords_do_not_match"));
+      setError(t("signup_page.passwords_do_not_match"));
       setIsLoading(false); // Reset loading status
 
       return;
@@ -43,7 +42,7 @@ export default function Signup() {
     try {
       await signUp(state.email, state.password, state.fullName);
       setError("");
-      console.log("Created Account Successfully!");
+      console.log(t("signup_page.signup_successful"));
       setSignupSuccess(true);
       // Show success message for a few seconds before redirecting
       setTimeout(() => {
@@ -63,17 +62,20 @@ export default function Signup() {
         <div className="card w-full max-w-md glass shadow-xl">
           <div className="card-body">
             <h1 className="text-4xl font-bold text-center mb-10">
-              New Account
+              {t("signup_page.create_account")}
             </h1>
             {/* Used to show the Error/Success notification to the user */}
             {error ? (
               <div className="alert alert-error mb-4">
-                <span>Error! {error}</span>
+                <span>
+                  {t("signup_page.error")}
+                  {error}
+                </span>
               </div>
             ) : (
               signupSuccess && (
                 <div className="alert alert-success mb-4">
-                  <span>Signup Successful, Welcome!</span>
+                  <span>{t("signup_page.signup_successful")}</span>
                 </div>
               )
             )}
@@ -90,11 +92,10 @@ export default function Signup() {
                     <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM12.735 14c.618 0 1.093-.561.872-1.139a6.002 6.002 0 0 0-11.215 0c-.22.578.254 1.139.872 1.139h9.47Z" />
                   </svg>
                 </div>
-
                 <input
                   type="text"
                   name="fullName"
-                  placeholder="Full Name"
+                  placeholder={t("signup_page.enter_full_name")}
                   className="input input-bordered w-full pl-10 text-lg"
                   onChange={handleForm}
                   required
@@ -117,7 +118,7 @@ export default function Signup() {
                 <input
                   type="text"
                   name="email"
-                  placeholder="Email"
+                  placeholder={t("signup_page.enter_email")}
                   className="input input-bordered w-full pl-10 text-lg"
                   onChange={handleForm}
                   required
@@ -143,7 +144,7 @@ export default function Signup() {
                 <input
                   type="password"
                   name="password"
-                  placeholder="Password"
+                  placeholder={t("signup_page.enter_password")}
                   className="input input-bordered w-full pl-10 text-lg"
                   onChange={handleForm}
                   required
@@ -169,7 +170,7 @@ export default function Signup() {
                 <input
                   type="password"
                   name="passwordConfirm"
-                  placeholder="Confirm Password"
+                  placeholder={t("signup_page.enter_confirm_password")}
                   className="input input-bordered w-full pl-10 text-lg"
                   onChange={handleForm}
                   required
@@ -185,14 +186,14 @@ export default function Signup() {
                   {isLoading ? (
                     <span className="loading loading-spinner loading-md"></span>
                   ) : (
-                    "Create Account"
+                    t("signup_page.create_account")
                   )}
                 </button>
               </div>
               <p className="mt-4">
-                Already have an account?{" "}
+                {t("signup_page.already_have_account")}{" "}
                 <Link to="/login" className="link link-info">
-                  Login
+                  {t("signup_page.login")}
                 </Link>
               </p>
             </form>

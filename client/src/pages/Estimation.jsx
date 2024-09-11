@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Layout from "../components/Layout/Layout";
 import VisualizationSection from "../components/Analysis/VisualizationSection";
-import carModelsUSA from "../data/car_models.json";
+import carModelsUSA from "../data/USA_car_models.json";
 import carModelsKSA from "../data/KSA_car_models.json";
 import { useTranslation } from "react-i18next";
 import { fetchExpectedPrice } from "../utils/PythonAPI";
@@ -29,6 +29,7 @@ const Estimation = () => {
   const [carDrivetrains, setCarDrivetrains] = useState("");
   const [carExtensions, setCarExtensions] = useState("");
   const [predictedPrice, setPredictedPrice] = useState(null);
+  const [accidentsOrDamage, setAccidentsOrDamage] = useState(""); // State for accidents or damage
 
   useEffect(() => {
     if (market === "USA") {
@@ -55,6 +56,7 @@ const Estimation = () => {
     setCarDrivetrains("");
     setCarExtensions("");
     setPredictedPrice(null);
+    setAccidentsOrDamage(0);
   }, [market]);
 
   useEffect(() => {
@@ -98,7 +100,7 @@ const Estimation = () => {
 
     try {
       console.log("fetchExpectedPrice called");
-      const price = await fetchExpectedPrice(carDetails);
+      const price = await fetchExpectedPrice(carDetails, "ksa");
       setPredictedPrice(price);
     } catch (error) {
       console.error("Error:", error);
@@ -113,16 +115,19 @@ const Estimation = () => {
     setShowAnalysisCard(false);
 
     const carDetails = {
-      Car_Brands: selectedMake,
-      Car_Models: selectedModel,
-      Car_Years: parseInt(year),
-      Car_Kilometers: parseInt(mileage),
-      // Add more USA-specific details if needed
+      manufacturer: selectedMake, // Mapping Car_Brands to manufacturer
+      model: selectedModel, // Mapping Car_Models to model
+      year: parseInt(year), // Mapping Car_Years to year
+      mileage: parseInt(mileage), // Mapping Car_Kilometers to mileage
+      mpg: fuelType === "Gasoline" ? 30 : 20, // Example MPG value based on fuel type
+      drivetrain: carDrivetrains, // Direct mapping of drivetrain
+      accidents_or_damage: 0, // Default value; adjust based on data availability
+      // Add any additional mappings as required
     };
 
     try {
       console.log("fetchExpectedPrice called for USA");
-      const price = await fetchExpectedPrice(carDetails);
+      const price = await fetchExpectedPrice(carDetails, "usa"); // Specify 'usa' for the region
       setPredictedPrice(price);
     } catch (error) {
       console.error("Error:", error);
@@ -574,6 +579,87 @@ const Estimation = () => {
                           style={{ fontFamily: "'El Messiri', sans-serif" }}
                         />
                       </div>
+
+                      {/* Fuel Type Input */}
+                      <div className="w-full max-w-xs mt-4">
+                        <h3
+                          className="text-2xl font-semibold mb-4"
+                          style={{ fontFamily: "'El Messiri', sans-serif" }}
+                        >
+                          {t("estimator.fuel_type")}
+                        </h3>
+                        <select
+                          className="select select-neutral w-full max-w-xs"
+                          value={fuelType}
+                          onChange={(e) => setFuelType(e.target.value)}
+                          required
+                          style={{ fontFamily: "'El Messiri', sans-serif" }}
+                        >
+                          <option value="" disabled hidden>
+                            {t("estimator.select_fuel_type")}
+                          </option>
+                          <option value="Gasoline">
+                            {t("estimator.gasoline")}
+                          </option>
+                          <option value="Diesel">
+                            {t("estimator.diesel")}
+                          </option>
+                          <option value="Electric">
+                            {t("estimator.electric")}
+                          </option>
+                        </select>
+                      </div>
+
+                      {/* Car Drivetrains Input */}
+                      <div className="w-full max-w-xs mt-4">
+                        <h3
+                          className="text-2xl font-semibold mb-4"
+                          style={{ fontFamily: "'El Messiri', sans-serif" }}
+                        >
+                          {t("estimator.car_drivetrains")}
+                        </h3>
+                        <select
+                          className="select select-neutral w-full max-w-xs"
+                          value={carDrivetrains}
+                          onChange={(e) => setCarDrivetrains(e.target.value)}
+                          required
+                          style={{ fontFamily: "'El Messiri', sans-serif" }}
+                        >
+                          <option value="" disabled hidden>
+                            {t("estimator.select_option")}
+                          </option>
+                          <option value="All-wheel Drive">RWD</option>
+                          <option value="All-wheel Drive">FWD</option>
+                          <option value="All-wheel Drive">AWD</option>
+                          <option value="All-wheel Drive">4WD</option>
+                        </select>
+                      </div>
+
+                      {/* Accidents or Damage Input */}
+                      <div className="w-full max-w-xs mt-4">
+                        <h3
+                          className="text-2xl font-semibold mb-4"
+                          style={{ fontFamily: "'El Messiri', sans-serif" }}
+                        >
+                          {t("estimator.accidents_or_damage")}
+                        </h3>
+                        <select
+                          className="select select-neutral w-full max-w-xs"
+                          value={accidentsOrDamage}
+                          onChange={(e) =>
+                            setAccidentsOrDamage(parseInt(e.target.value))
+                          }
+                          required
+                          style={{ fontFamily: "'El Messiri', sans-serif" }}
+                        >
+                          <option value="" disabled hidden>
+                            {t("estimator.select_option")}
+                          </option>
+                          <option value="0">{t("estimator.no")}</option>
+                          <option value="1">{t("estimator.yes")}</option>
+                        </select>
+                      </div>
+
                       {/* Estimate Button */}
                       <button
                         type="submit"

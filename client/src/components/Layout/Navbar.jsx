@@ -121,7 +121,7 @@ const Navbar = () => {
               ) : (
                 <>
                   <li>
-                    <Link to="/login">Log in</Link>
+                    <Link to="/login">{t("login_page.login")}</Link>
                   </li>
                   <li>
                     <Link to="/signup">Sign up</Link>
@@ -205,10 +205,10 @@ const Navbar = () => {
               ) : (
                 <>
                   <li>
-                    <Link to="/login">Log in</Link>
+                    <Link to="/login">{t("login_page.login")}</Link>
                   </li>
                   <li>
-                    <Link to="/signup">Sign up</Link>
+                    <Link to="/signup">{t("signup_page.create_account")}</Link>
                   </li>
                 </>
               )}

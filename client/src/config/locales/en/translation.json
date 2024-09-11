@@ -73,7 +73,8 @@
     "car_drivetrains": "Car Drivetrains",
     "enter_car_drivetrains": "Enter Car Drivetrains",
     "car_extensions": "Car Extensions",
-    "enter_car_extensions": "Enter Car Extensions"
+    "enter_car_extensions": "Enter Car Extensions",
+    "accidents_or_damage": "Is there any accidents or damage?"
   },
   "reports": {
     "coming_soon": "Coming Soon ..."
@@ -134,6 +135,35 @@
     "estimated_price": "The estimated price is:",
     "loading": "Loading...",
     "go_home": "Go Back Home"
-
+  },
+  "login_page": {
+    "is_loading": "Loading ...",
+    "login": "Login",
+    "email": "Email",
+    "password": "Password",
+    "error": "Error! ",
+    "login_successful": "Login successful! Welcome Back!",
+    "no_account_yet": "No account yet?",
+    "sign_up": "Sign up",
+    "welcome_message": "Welcome Back!",
+    "enter_email": "Enter your email",
+    "enter_password": "Enter your password"
+  },
+  "signup_page": {
+    "is_loading": "Loading ...",
+    "create_account": "Create Account",
+    "full_name": "Full Name",
+    "email": "Email",
+    "password": "Password",
+    "confirm_password": "Confirm Password",
+    "error": "Error! ",
+    "signup_successful": "Signup Successful, Welcome!",
+    "passwords_do_not_match": "Passwords do not match",
+    "already_have_account": "Already have an account?",
+    "login": "Login",
+    "enter_full_name": "Enter your full name",
+    "enter_email": "Enter your email",
+    "enter_password": "Enter your password",
+    "enter_confirm_password": "Confirm your password"
   }
 }
