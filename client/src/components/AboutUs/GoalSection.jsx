@@ -33,7 +33,7 @@ const GoalSection = forwardRef((props, ref) => {
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={hasAnimated ? { opacity: 1, x: 0 } : {}} // Animate only if hasn't animated
-          transition={{ type: "spring", stiffness: 50 }}
+          transition={{ type: "tween", duration: 2, ease: "easeOut" }} // Set duration to 2 seconds
           className="hidden md:block"
         >
           <img src={goal_img} alt="Goal" />
@@ -41,7 +41,7 @@ const GoalSection = forwardRef((props, ref) => {
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={hasAnimated ? { opacity: 1, x: 0 } : {}} // Animate only if hasn't animated
-          transition={{ type: "spring", stiffness: 50 }}
+          transition={{ type: "tween", duration: 1.5, ease: "easeOut" }} // Set duration to 2 seconds
         >
           <h1
             className="text-5xl font-bold leading-normal"
@@ -61,7 +61,7 @@ const GoalSection = forwardRef((props, ref) => {
 
           <button
             onClick={scrollToTeamSection}
-            className="btn btn-neutral w-1/2 text-xl mt-4 mb-16"
+            className="btn btn-neutral sm:text-xl w-1/2 mt-4 mb-16"
             style={{ fontFamily: "'El Messiri', sans-serif" }}
           >
             {t("goal.goal_button")}

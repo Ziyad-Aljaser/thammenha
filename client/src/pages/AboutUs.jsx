@@ -87,19 +87,22 @@ const AboutUs = forwardRef((props, ref) => {
   const [targetRef, handleButtonClick] = useSmoothScroll();
   const { t } = useTranslation();
 
-  // Animation variants for the sponsor card
-  const sponsorVariants = {
-    hidden: { opacity: 0, x: -50 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        type: "spring",
-        stiffness: 50,
-        damping: 20,
-      },
+// Animation variants for the sponsor card
+// Alternative Animation variants using tween for the sponsor card
+const sponsorVariants = {
+  hidden: { opacity: 0, x: 0 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      type: "tween",
+      duration: 2, // Adjust duration for speed
+      ease: "easeOut", // Use an easing function for a smooth effect
     },
-  };
+  },
+};
+
+
 
   // Animation variants for the educator
   const educatorVariants = {
@@ -275,7 +278,7 @@ const AboutUs = forwardRef((props, ref) => {
         <div className="flex justify-center items-center py-16">
           <Link
             to={"/"}
-            className="btn btn-neutral w-1/2 text-xl"
+            className="btn btn-neutral w-1/2 sm:text-xl"
             style={{ fontFamily: "'El Messiri', sans-serif" }}
           >
             {t("about_us.back_button")}
